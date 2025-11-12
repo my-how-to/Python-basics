@@ -39,7 +39,7 @@ class Logger:
 
     def show_logs(self):
         """Display all logged messages."""
-        print("\\nAll log entries:")
+        print("\n All log entries:")
         for line in self.log_file:
             print(line)
 
@@ -51,14 +51,14 @@ if __name__ == "__main__":
     print("--- Singleton Pattern Example ---")
 
     log1 = Logger()
-    log1.write("System started.")
-    log1.write("Running diagnostics...")
+    log1.write("log1. System started.")
+    log1.write("log1. Running diagnostics...")
 
     log2 = Logger()
-    log2.write("Diagnostics completed.")
+    log2.write("log2. Diagnostics completed.")
     log2.show_logs()
 
-    print("\\nlog1 is log2:", log1 is log2)
+    print("\n log1 is log2:", log1 is log2)
 
 
 # -----------------------------

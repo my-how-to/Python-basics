@@ -1,11 +1,6 @@
 # Python, Design Patterns — Educational Examples
 
 This repository contains a collection of **simplified, commented examples** of classic *Object-Oriented Design Patterns* implemented in Python.
-Each pattern includes:
-
-* A **before version** (showing how developers coded before the pattern appeared)
-* A **pattern version** (showing the improved structure)
-* Clear **comments**, **example output**, and a short **history**
 
 ---
 
@@ -44,7 +39,7 @@ design_patterns/
 ```bash
 git clone https://github.com/my-how-to/patterns.git
 cd patterns
-
+```
 2. Each file can be executed individually:
 
 ```bash
@@ -94,6 +89,6 @@ without additional error handling, optimization, and security considerations.
 
 ## Author
 
-**Alexandru Petrenco**
+**Alexandru Petrenco.**
 Educational repository built with AI assistance from *OpenAI GPT-5*.
 This project is part of a personal study collection on **Object-Oriented Programming** and **Software Design Patterns**.

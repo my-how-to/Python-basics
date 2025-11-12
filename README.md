@@ -26,17 +26,17 @@ Each file is self-contained and can be run directly using Python 3.
 ```
 design_patterns/
 │
-├── factory_method_before.py
-├── factory_method_basic.py
-├── factory_method_registry.py
+├── factory_before.py
+├── factory.py
+├── factory_registry.py
 ├── singleton_before.py
-├── singleton_pattern.py
+├── singleton.py
 ├── adapter_before.py
-├── adapter_pattern.py
+├── adapter.py
 ├── decorator_before.py
-├── decorator_pattern.py
+├── decorator.py
 ├── observer_before.py
-├── observer_pattern.py
+├── observer.py
 └── README.md
 ```
 
@@ -44,7 +44,12 @@ design_patterns/
 
 ## 🚀 How to Run
 
-Each file can be executed individually:
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/my-how-to/patterns.git
+   cd patterns
+
+2. Each file can be executed individually:
 
 ```bash
 python3 factory_method_basic.py
@@ -96,12 +101,3 @@ without additional error handling, optimization, and security considerations.
 **Alexandru Petrenco**
 Educational repository built with AI assistance from *OpenAI GPT-5*.
 This project is part of a personal study collection on **Object-Oriented Programming** and **Software Design Patterns**.
-
----
-
-##  How to Run
-
-1. Clone the repository  
-   ```bash
-   git clone https://github.com/my-how-to/patterns.git
-   cd patterns

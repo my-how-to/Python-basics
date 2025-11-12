@@ -9,7 +9,7 @@ Each pattern includes:
 
 ---
 
-## 📘 Overview
+## Overview
 
 The goal of this repository is to help learners understand **why** design patterns exist,
 and **how** they improve code readability, flexibility, and maintainability.
@@ -21,33 +21,29 @@ Each file is self-contained and can be run directly using Python 3.
 
 ---
 
-## 🧩 Repository Structure
+## Repository Structure
 
 ```
 design_patterns/
 │
 ├── factory_before.py
-├── factory.py
 ├── factory_registry.py
+├── factory.py
 ├── singleton_before.py
 ├── singleton.py
-├── adapter_before.py
-├── adapter.py
-├── decorator_before.py
-├── decorator.py
-├── observer_before.py
-├── observer.py
+├── ....
 └── README.md
 ```
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Clone the repository  
-   ```bash
-   git clone https://github.com/my-how-to/patterns.git
-   cd patterns
+
+```bash
+git clone https://github.com/my-how-to/patterns.git
+cd patterns
 
 2. Each file can be executed individually:
 
@@ -62,7 +58,7 @@ so you can easily compare expected and actual behavior.
 
 ---
 
-## 🧠 Included Patterns
+## Included Patterns
 
 | Category       | Pattern        | Description                                             |
 | -------------- | -------------- | ------------------------------------------------------- |
@@ -74,7 +70,7 @@ so you can easily compare expected and actual behavior.
 
 ---
 
-## 🧱 Educational Approach
+## Educational Approach
 
 Each pattern follows the same structure:
 
@@ -96,7 +92,7 @@ without additional error handling, optimization, and security considerations.
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 **Alexandru Petrenco**
 Educational repository built with AI assistance from *OpenAI GPT-5*.

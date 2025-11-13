@@ -11,9 +11,9 @@ first *before* the pattern existed, and then using the *pattern approach*.
 Each file can be executed directly:
 
 ```bash
-python3 factory_method_basic.py
+python3 factory_registry.py
 python3 observer_before.py
-python3 singleton_pattern.py
+python3 singleton.py
 ```
 
 Each example includes its own **comments**, **output**, and **short history**

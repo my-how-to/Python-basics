@@ -15,7 +15,7 @@ Each entry includes a short, one-line description and a link to the correspondin
 | --------------------------------------------- | ------------------------------------------------------------------------------- |
 | [**factory.py**](factory.py)                  | Creates objects without specifying the exact class to instantiate.              |
 | [**abstract_factory.py**](abstract_factory.py) | Produces families of related objects without specifying their concrete classes. |
-| [**builder.py**](missing_pattern.md)          | Separates the construction of a complex object from its representation.         |
+| [**builder.py**](builder.md)          | Separates the construction of a complex object from its representation.         |
 | [**prototype.py**](prototype.py)              | Creates new objects by copying existing ones (cloning).                         |
 | [**singleton.py**](singleton.py)              | Ensures a class has only one instance and provides a global access point.       |
 

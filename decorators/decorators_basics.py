@@ -19,6 +19,15 @@
 # ============================================================
 
 """
+Decorators in Python modify or enhance functions without changing their internal code.
+They separate the "what" from the "how":
+    - The function defines WHAT it does
+    - The decorator defines HOW its behavior is modified
+
+This separation keeps logic cleaner, reusable, and easier to maintain.
+"""
+
+"""
 A decorator in Python is:
 
     → a function that takes another function
@@ -182,6 +191,7 @@ SUMMARY = """
       DECORATORS SUMMARY
 ===========================
 
+• Decorators separate the WHAT from the HOW.
 • A decorator is a function that takes a function and returns a new one.
 • The @decorator syntax is just syntactic sugar for:
       func = decorator(func)

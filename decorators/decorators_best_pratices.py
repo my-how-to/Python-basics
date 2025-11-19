@@ -1,17 +1,17 @@
-"""
-=========================================
-   DECORATORS — BEST PRACTICES & ADVANCED
-=========================================
+# =========================================
+#  DECORATORS — BEST PRACTICES & ADVANCED
+# =========================================
+#
+# This file expands the basics and introduces:
+#    - functools.wraps
+#    - decorators that accept arguments
+#    - stacked decorators
+#    - preserving original functions
+#    - practical guidelines
+#
+# All explanations are included inside triple-quoted blocks.
+#
 
-This file expands the basics and introduces:
-    - functools.wraps
-    - decorators that accept arguments
-    - stacked decorators
-    - preserving original functions
-    - practical guidelines
-
-All explanations are included inside triple-quoted blocks.
-"""
 
 # ============================================================
 # 1. WHY functools.wraps IS IMPORTANT

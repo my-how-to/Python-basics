@@ -30,7 +30,7 @@ Each entry includes a short, one-line description and a link to the correspondin
 | [**composite.py**](composite.py) | Composes objects into tree structures to represent part-whole hierarchies.                |
 | [**decorator.py**](decorator.py)       | Dynamically adds or modifies functionality of an object at runtime.                       |
 | [**facade.py**](facade.py)    | Provides a simplified interface to a larger body of code.                                 |
-| [**flyweight.py**](missing_pattern.md) | Reduces memory usage by sharing common data between similar objects.                      |
+| [**flyweight.py**](flyweight.py) | Reduces memory usage by sharing common data between similar objects.                      |
 | [**proxy.py**](missing_pattern.md)     | Controls access to another object, often adding additional behavior.                      |
 
 ---

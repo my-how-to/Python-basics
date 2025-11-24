@@ -2,12 +2,12 @@
 
 Quick reference for Python's built-in collection types. Click a type to jump to the local lesson file.
 
-| Type | Ordered? | Changeable? | Allows Duplicates? | Example |
-| --- | --- | --- | --- | --- |
-| [List](lists_in_python.py) | ✅ Yes | ✅ Yes | ✅ Yes | `["a", "b", "c"]` |
-| [Tuple](tuples_in_python.py) | ✅ Yes | ❌ No | ✅ Yes | `("a", "b", "c")` |
-| [Set](sets_in_python.py) | ❌ No | ✅ Yes | ❌ No | `{"a", "b", "c"}` |
-| [Dictionary](dicts_in_python.py) | ✅ Yes | ✅ Yes | ❌ (keys only) | `{"a": 1, "b": 2}` |
+| Type | Ordered? | Changeable? | Allows Duplicates? | Example | Quick Definition |
+| --- | --- | --- | --- | --- | --- |
+| [List](lists_in_python.py) | ✅ Yes | ✅ Yes | ✅ Yes | `["a", "b", "c"]` | Flexible sequence for general-purpose data. |
+| [Tuple](tuples_in_python.py) | ✅ Yes | ❌ No | ✅ Yes | `("a", "b", "c")` | Immutable record for fixed data. |
+| [Set](sets_in_python.py) | ❌ No | ✅ Yes | ❌ No | `{"a", "b", "c"}` | Unordered collection of unique items. |
+| [Dictionary](dicts_in_python.py) | ✅ Yes | ✅ Yes | ❌ (keys only) | `{"a": 1, "b": 2}` | Mapping of keys to values. |
 
 ---
 

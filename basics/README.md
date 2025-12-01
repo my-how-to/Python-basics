@@ -23,6 +23,7 @@ Below is a structured **table of contents** with a short description for every l
 | **9.2**  | [Sets](sets.py)                                         | unique items, set operations                         | —                                        |      |
 | **10.1** | [Comprehensions](comprehensions.py)                     | list/dict/set comprehensions                         | —                                        |      |
 | **10.2** | [Lambda Functions](lambda.py)                           | anonymous functions, map/filter/sorted               | —                                        |      |
+| **11** | [Strings](strings.py)                           | text handling, slicing, methods, formatting               | —                                        |      |
 
 
 

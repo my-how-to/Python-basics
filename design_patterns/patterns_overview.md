@@ -49,7 +49,7 @@ Each entry includes a short, one-line description and a link to the correspondin
 | [**state.py**](state.py)                   | Allows an object to alter its behavior when its internal state changes.                   |
 | [**strategy.py**](strategy.py)                | Defines a family of algorithms and makes them interchangeable at runtime.                 |
 | [**template_method.py**](template_method.py)         | Defines the skeleton of an algorithm, letting subclasses override certain steps.          |
-| [**visitor.py**](missing_pattern.md)                 | Separates an algorithm from the objects it operates on for easier extension.              |
+| [**visitor.py**](visitor.py)                 | Separates an algorithm from the objects it operates on for easier extension.              |
 
 ---
 

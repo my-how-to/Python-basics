@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 8 - FUNCTIONS
+#            LESSON - FUNCTIONS
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #

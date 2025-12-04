@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 10.2 - SETS (COLLECTIONS)
+#            LESSON - SETS (COLLECTIONS)
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #

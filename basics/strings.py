@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 12 — STRINGS
+#            LESSON — STRINGS
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #

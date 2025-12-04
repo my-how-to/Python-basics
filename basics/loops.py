@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 4 - LOOPS
+#            LESSON - LOOPS
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #

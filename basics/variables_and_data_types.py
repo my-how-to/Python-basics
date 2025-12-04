@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 1 — VARIABLES & DATA TYPES
+#            LESSON — VARIABLES & DATA TYPES
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #

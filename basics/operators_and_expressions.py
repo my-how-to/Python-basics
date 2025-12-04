@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 2 — OPERATORS & EXPRESSIONS
+#            LESSON — OPERATORS & EXPRESSIONS
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #

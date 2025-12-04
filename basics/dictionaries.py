@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 6 — DICTIONARIES (COLLECTIONS)
+#            LESSON — DICTIONARIES (COLLECTIONS)
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #

@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 3 — CONDITIONS & LOOPS
+#            LESSON — CONDITIONS & LOOPS
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 # 

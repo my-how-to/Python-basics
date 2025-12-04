@@ -18,10 +18,10 @@ Below is a structured **table of contents** with a short description for every l
 | **6**    | [Dictionaries](dictionaries.py)                         | key/value storage, updates, looping, membership      | —                                        |      
 | **7**    | [File Handling](files.py)                               | read/write, append, with-statement, CSV              | [read more](docs/files_documentation.md) |      
 | **8**    | [Functions](functions.py)                               | parameters, return, scope, reusable code             | —                                        |      
-| **9**    | [Exception Handling](error_handling.py)                 | try/except, specific errors, finally                 | [read more](docs/error_handling_reference.md) |      
-| **10.1** | [Tuples](tuples.py)                                     | immutable ordered collections, unpacking             | —                                        |      
-| **10.2** | [Sets](sets.py)                                         | unique items, set operations                         | —                                        |      
-| **11**   | [Strings](strings.py)                                   | text handling, slicing, methods, formatting          | —                                        |      
+| **9**    | [Exception Handling](exceptions/error_handling.py)                 | try/except, specific errors, finally                 | [read more](docs/error_handling_reference.md) |      
+| **10** | [Tuples](tuples.py)                                     | immutable ordered collections, unpacking             | —                                        |      
+| **11** | [Sets](sets.py)                                         | unique items, set operations                         | —                                        |      
+| **12**   | [Strings](strings.py)                                   | text handling, slicing, methods, formatting          | —                                        |      
 
 
 

@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 9.1 - PYTHON EXCEPTION HANDLING
+#            LESSON - PYTHON EXCEPTION HANDLING
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #
@@ -208,7 +208,3 @@ def example_safe_conversion():
         except ValueError:
             print(f"Skipping invalid value: {val}")
 
-
-# ------------------------------------------------------------
-# END OF FILE
-# ------------------------------------------------------------

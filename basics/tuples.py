@@ -1,5 +1,5 @@
 # ============================================================
-#            LESSON 10.1 - TUPLES (COLLECTIONS)
+#            LESSON - TUPLES (COLLECTIONS)
 # ============================================================
 # Author: Alexandru Petrenco (with AI assistance from OpenAI GPT-5)
 #

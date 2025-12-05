@@ -1,0 +1,23 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# OS files
+.DS_Store
+
+# IDE/editor junk
+.idea/
+.vscode/
+
+# Coverage / testing
+.pytest_cache/
+.coverage
+coverage.xml
+
+# Build artifacts
+dist/
+build/

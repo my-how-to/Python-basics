@@ -14,8 +14,9 @@
 #   2. Identity (is)
 #   3. Mutables vs immutables
 #   4. When to use "is"
-#   5. Dangerous cases and common mistakes
-#   6. Practical examples and diagnostics
+#   5. Common mistakes
+#   6. Diagnostic example
+#   7. Advanced note: Why "1000 is 1000" may be True or False
 # ============================================================
 
 
@@ -28,7 +29,7 @@ a = [1, 2]
 b = [1, 2]
 
 print("a == b:", a == b)   # True — lists contain the same values
-print("a is b:", a is b)   # False — two different list objects
+print("a is b:", a is b)   # False — different list objects
 
 
 # ============================================================
@@ -51,12 +52,12 @@ print("\n--- SECTION 3: Mutable vs Immutable ---")
 # Immutable values like small integers may be reused internally.
 n1 = 100
 n2 = 100
-print("n1 is n2:", n1 is n2)   # often True (cached small integers)
+print("n1 is n2:", n1 is n2)   # True — small integer caching (-5 to 256)
 
-# Larger integers are not guaranteed to be the same object.
+# Larger integers are not guaranteed to be reused.
 n3 = 1000
 n4 = 1000
-print("n3 is n4:", n3 is n4)   # often False (different objects)
+print("n3 is n4:", n3 is n4)   # True or False — depends on compiler optimizations
 
 # Strings may or may not be interned.
 s1 = "hello"
@@ -75,7 +76,12 @@ print("\n--- SECTION 4: Correct usage of 'is' ---")
 
 value = None
 
+# The interpreter stores only one real None object, 
+# so `is` confirms you have that exact object.
 print("value is None:", value is None)   # correct
+
+# Equality checks can be overloaded, so `value == None` 
+# might call custom logic instead of the plain None comparison.
 print("value == None:", value == None)   # allowed but not recommended
 
 
@@ -84,7 +90,7 @@ print("value == None:", value == None)   # allowed but not recommended
 # ============================================================
 print("\n--- SECTION 5: Common mistakes ---")
 
-print("5 is 5:", 5 is 5)     # may be True but should NOT be relied on
+print("5 is 5:", 5 is 5)     # may be True but should not be relied on
 print("5 == 5:", 5 == 5)     # correct way to compare numbers
 
 print('"ab" is "ab":', "ab" is "ab")   # unpredictable
@@ -101,3 +107,34 @@ try:
 except Exception as e:
     print("Exception type:", type(e).__name__)
     print("Exception class is TypeError:", type(e) is TypeError)
+
+
+# ============================================================
+# 7. ADVANCED NOTE: WHY "1000 is 1000" MAY BE TRUE OR FALSE
+# ============================================================
+print("\n--- SECTION 7: Advanced note — integer identity behavior ---")
+
+# Python guarantees caching only for integers in the range [-5, 256].
+# Outside that range, identity reuse is NOT guaranteed.
+
+# Example 1: Variables written literally in code may share the same object.
+a = 1000
+b = 1000
+print("a is b (literal assignment):", a is b)  # True on some systems, False on others
+
+# Example 2: Creating integers dynamically forces new objects.
+c = int("1000")
+d = int("1000")
+print("c is d (from int()):", c is d)  # usually False
+
+# Example 3: Re-evaluation inside functions often creates new integers.
+def make():
+    return 1000
+
+x = make()
+y = make()
+print("x is y (from function):", x is y)  # usually False
+
+# Key rule:
+#    DO NOT use "is" for comparing integers or strings.
+#    Use == for values.

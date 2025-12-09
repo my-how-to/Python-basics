@@ -81,6 +81,14 @@ for i in range(10):
         continue  # skip to the next iteration
     print(i)  # prints only odd numbers
 
+print("\nPASS example:")
+for fruit in fruits:
+    if fruit == "banana":
+        pass  # placeholder when no action is needed (required syntactically)
+    else:
+        print(f"Processing {fruit}")
+print("PASS lets you leave a block empty without causing an error.")
+
 
 print("\n# -----------------------------")
 print("# 5. LOOP ELSE CLAUSE")

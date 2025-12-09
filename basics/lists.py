@@ -105,6 +105,12 @@ y = x
 y.append(4)
 print("x after y.append:", x)  # [1, 2, 3, 4] → x and y reference the same list
 
+# Make a shallow copy with slicing when you want a new list with the same values.
+a = [1, 2, 3]
+b = a[:]
+b.append(4)
+print("a stays the same, b gets the new item:", a, b)
+
 # ============================================================
 # 2) Useful List Functions
 # ============================================================

@@ -54,9 +54,9 @@
 # - If __init__ is omitted BUT the parent class has __init__, Python uses the parent's version.
 # - If __init__ is omitted AND the parent requires parameters → calling the class will raise TypeError.
 #
-# ===========================================
-# 3 SIMPLE EXAMPLE
-# ===========================================
+print("\n# -----------------------------")
+print("# 3. SIMPLE EXAMPLE")
+print("# -----------------------------\n")
 
 class Car:
     """A simple Car class demonstrating attributes and methods."""
@@ -74,9 +74,9 @@ my_car = Car("Opel Astra", "silver")
 my_car.drive()     # Output: The silver Opel Astra is driving.
 
 
-# ===========================================
-# 4 MULTIPLE OBJECTS
-# ===========================================
+print("\n# -----------------------------")
+print("# 4. MULTIPLE OBJECTS")
+print("# -----------------------------\n")
 
 car1 = Car("BMW", "black")
 car2 = Car("Toyota", "red")
@@ -86,17 +86,17 @@ car2.drive()
 # Each instance has its own independent data.
 
 
-# ===========================================
-# 5 ATTRIBUTES AND SELF
-# ===========================================
+print("\n# -----------------------------")
+print("# 5. ATTRIBUTES AND SELF")
+print("# -----------------------------\n")
 
 print("\nBrand:", my_car.brand)
 print("Color:", my_car.color)
 # `self` gives access to each object's attributes inside the class.
 
-# ===========================================
-# 6. CLASS ATTRIBUTE VS INSTANCE ATTRIBUTE
-# ===========================================
+print("\n# -----------------------------")
+print("# 6. CLASS ATTRIBUTE VS INSTANCE ATTRIBUTE")
+print("# -----------------------------\n")
 #
 # Class attribute:
 #   - defined at class level
@@ -120,9 +120,30 @@ print(a.x)  # 10 (instance attribute shadows class attribute)
 # Key rule:
 # Changing an attribute through an instance does NOT modify the class attribute.
 
-# ===========================================
-# 7 CLASS WITH DEFAULT VALUES & ENCAPSULATION
-# ===========================================
+# Class-level counters are another common use of class attributes.
+class Person:
+    population = 0  # shared counter
+
+    def __init__(self, name):
+        self.name = name
+        Person.population += 1  # update shared counter whenever a new instance is created
+
+    def say_hi(self):
+        print(f"Hi, I'm {self.name} (#{Person.population} in population count)")
+
+
+alice = Person("Alice")
+bob = Person("Bob")
+alex = Person("Alex")
+alice.say_hi()
+bob.say_hi()
+alex.say_hi()
+
+print("People created so far:", Person.population)
+
+print("\n# -----------------------------")
+print("# 7. CLASS WITH DEFAULT VALUES & ENCAPSULATION")
+print("# -----------------------------\n")
 
 class BankAccount:
     """Demonstrates attributes, default values, and encapsulation."""
@@ -148,9 +169,9 @@ alex.deposit(50)
 alex.withdraw(30)
 
 
-# ===========================================
-# 8 INHERITANCE & POLYMORPHISM
-# ===========================================
+print("\n# -----------------------------")
+print("# 8. INHERITANCE & POLYMORPHISM")
+print("# -----------------------------\n")
 
 class ElectricCar(Car):
     """Child class inheriting from Car."""

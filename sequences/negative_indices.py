@@ -51,11 +51,12 @@ print("\n# -----------------------------")
 print("# 4. NEGATIVE INDICES IN SLICING")
 print("# -----------------------------\n")
 
-letters = ["a", "b", "c", "d", "e" , "f"]
+letters = ["a", "b", "c", "d", "e" , "f", "g"]
 
-print(letters[-3:])      # ['d', 'e', 'f']  # last 3 elements
-print(letters[:-2])      # ['a', 'b', 'c', 'd']  # up to -2 (not including -2)
-print(letters[-4:-1])    # ['c', 'd', 'e']  # from -4 to -1 (not including -1)
+print(letters[-3:-2])    
+print(letters[:-2])     # ['a', 'b', 'c', 'd', 'e']  # all but last 2
+print(letters[-4:-1])   # ['d', 'e', 'f']  # from -4 to -2
+
 
 # Mixed example:
 print(letters[1:-1])     # everything except first and last

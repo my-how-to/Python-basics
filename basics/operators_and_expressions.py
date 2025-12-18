@@ -45,20 +45,14 @@ b = 3
 print("Addition:", a + b)
 print("Subtraction:", a - b)
 print("Multiplication:", a * b)
-print("Division:", a / b)            # float division, even when division is “even”.
+print("Division:", a / b)            # '/' always yields a float (2 / 1 -> 2.0); use '//' or int() to get integers.
 print("Floor Division:", a // b)     # removes decimal. Discards the fractional part and returns an integer (or float if operands are float).
 print("Modulus:", a % b)             # remainder
 print("Exponent:", a ** b)           # a^b
 
-# Example Output:
-# Addition: 13
-# Subtraction: 7
-# Multiplication: 30
-# Division: 3.3333333333333335
-# Floor Division: 3
-# Modulus: 1
-# Exponent: 1000
-
+# Modulus example explanation:
+# 10 // 3 = 3 (3 * 3 = 9)
+# 10 - 9 = 1 (remainder)
 
 print("\n# -----------------------------")
 print("# 3. COMPARISON OPERATORS")

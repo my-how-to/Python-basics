@@ -51,8 +51,8 @@ print("Modulus:", a % b)             # remainder
 print("Exponent:", a ** b)           # a^b
 
 # Modulus example explanation:
-# 10 // 3 = 3 (3 * 3 = 9)
-# 10 - 9 = 1 (remainder)
+# 10 // 3 = 3   (3 * 3 = 9)
+# 10 - 9 = 1    (remainder)
 
 print("\n# -----------------------------")
 print("# 3. COMPARISON OPERATORS")

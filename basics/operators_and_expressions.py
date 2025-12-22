@@ -162,13 +162,20 @@ print("Final price:", final_price)
 # Password too short? False
 # Final price: 80.0
 
-# 11x = int(input()) # Get user input and convert to integer
 
-
-
+# Extra Example — Using modulus operator
 x = 11
 y = 4
+
 x = x % y # x now holds the remainder of 11 divided by 4
+print (x, y)    # Output: 3 4
+
 x = x % y # reapplying % with unchanged values gives the same result
+print (x, y)    # Output: 3 4
+
 y = y % x # y now holds the remainder of 4 divided by 3
-print (y)
+print (y)       # Output: 1
+
+
+for i in range(20):
+    print(f"i: {i}, i % 3: {i % 4}")

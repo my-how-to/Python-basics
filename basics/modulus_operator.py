@@ -38,6 +38,13 @@ print("42 % 10 =", first_pass, "| applying % again ->", second_pass)
 # The modulus operator exists to keep numbers within a fixed range 
 # by returning what remains after division, enabling cycles, limits, and wrap-around logic.
 
+# The modulus operator answers one question: “What is left after dividing by N?”
+# When dividing by 4, the possible remainders are only: 0, 1, 2, 3 
+# There are no other possibilities.
+for i in range(20):
+    print(f"i: {i}, i % 4: {i % 4}")
+
+
 print("\n# -----------------------------")
 print("# 2. VISUALIZING REMAINDERS")
 print("# -----------------------------\n")

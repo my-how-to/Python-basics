@@ -22,9 +22,18 @@ print("\n# -----------------------------")
 print("# 1. WHAT MODULUS MEANS")
 print("# -----------------------------\n")
 
-# % returns the remainder of integer division.
+# % returns the remainder of integer division. (the value left over after dividing one value by another)
 segments = 17 % 5
 print("17 % 5 =", segments)  # 5 fits 3 times with 2 leftover
+
+# Rule: a % b returns a itself when a < b.
+small = 3 % 10
+print("3 % 10 (a < b) =", small) # 3 % 10 (a < b) = 3
+
+# Rule: Reapplying % with unchanged values gives the same result.
+first_pass = 42 % 10
+second_pass = first_pass % 10
+print("42 % 10 =", first_pass, "| applying % again ->", second_pass)
 
 # The modulus operator exists to keep numbers within a fixed range 
 # by returning what remains after division, enabling cycles, limits, and wrap-around logic.

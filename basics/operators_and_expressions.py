@@ -161,3 +161,14 @@ print("Final price:", final_price)
 # Is teenager? True
 # Password too short? False
 # Final price: 80.0
+
+# 11x = int(input()) # Get user input and convert to integer
+
+
+
+x = 11
+y = 4
+x = x % y # x now holds the remainder of 11 divided by 4
+x = x % y # reapplying % with unchanged values gives the same result
+y = y % x # y now holds the remainder of 4 divided by 3
+print (y)

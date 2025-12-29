@@ -12,6 +12,7 @@ Below is a structured **table of contents** with a short description for every l
 | -------- | ------------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
 | **1**    | [Variables & Data Types](variables_and_data_types.py)   | variables, basic types, input/output                 | [read more](docs/types_overview.md)      |
 | **2**    | [Operators and Expressions](operators_and_expressions.py) | calculations and comparisons                      | —                                        |  
+| **2.1**  | [Bitwise Operators](bitwise_operators.py)               | &, |, ^, ~, shifts, masks, bit flags               | —                                        |  
 | **3**    | [Conditions (Intro)](conditions_intro.py)               | single decisions, comparisons, logical operators     | —                                        |      
 | **4**    | [Conditions (Advanced)](conditions_advanced.py)         | chaining, truthy/falsy, walrus, match/case, validation | —                                      |      
 | **5**    | [Loops (Intro)](loops_intro.py)                         | range(), iterating sequences, basic for/while        | —                                        |      

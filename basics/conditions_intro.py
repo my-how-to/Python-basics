@@ -50,6 +50,27 @@ day = "Sunday"
 if day == "Saturday" or day == "Sunday":
     print("Weekend vibes.")
 
+print("\n# -----------------------------")
+print("# 2.1 BOOLEAN TRUTH TABLES")
+print("# -----------------------------\n")
+
+# Truth tables show every possible outcome for logical operators.
+rows = [
+    (True, True),
+    (True, False),
+    (False, True),
+    (False, False),
+]
+
+print("A     B     | A and B | A or B  | A xor B | not A")
+print("-" * 50)
+for a, b in rows:
+    and_result = a and b
+    or_result = a or b
+    xor_result = (a and not b) or (not a and b)
+    not_a = not a
+    print(f"{a!s:<5} {b!s:<5} | {and_result!s:<7} | {or_result!s:<6} | {xor_result!s:<7} | {not_a!s}")
+
 
 print("\n# -----------------------------")
 print("# 3. BOOLEAN EXPRESSIONS IN CONDITIONS")

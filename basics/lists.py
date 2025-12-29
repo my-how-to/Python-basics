@@ -77,6 +77,15 @@ print(fruits)
 fruits.pop()
 print(fruits)
 
+# Or delete by index with del:
+del fruits[0]
+print(fruits)
+
+# Delete a slice (remove multiple items at once):
+fruits = ["apple", "banana", "cherry", "date", "elderberry"]
+del fruits[1:3]
+print(fruits)  # ['apple', 'date', 'elderberry']
+
 # ------------------------------------------------------------
 # Looping Through a List
 # ------------------------------------------------------------

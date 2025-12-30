@@ -162,10 +162,14 @@ print("\n# -----------------------------")
 print("# 7. ENUMERATE() AND ZIP()")
 print("# -----------------------------\n")
 
+# enumerate() is a built-in function that returns 
+# an iterator of (index, value) pairs.
 print("Enumerate a list to get index + value:")
 for index, fruit in enumerate(fruits, start=1):
     print(index, fruit)
 
+# zip() is a built-in function that returns 
+# an iterator of tuples, pairing items in lockstep.
 print("\nZip multiple sequences together:")
 colors = ["red", "green", "blue"]
 hex_codes = ["#FF0000", "#00FF00", "#0000FF"]

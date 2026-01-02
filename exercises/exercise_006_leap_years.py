@@ -58,8 +58,3 @@ leap_years = [y for y in years if is_leap(y)]
 print("Years:", years)
 print("Leap years:", leap_years)
 # Expected: [1992, 1996, 2000, 2004]
-
-
-def is_year_leap(year):
-    return (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0)
-

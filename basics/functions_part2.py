@@ -125,15 +125,17 @@ print("\n# -----------------------------")
 print("# 17. Recursion")
 print("# -----------------------------\n")
 
-# A function that calls itself.
-# Must always have a base case and move toward it.
+# A function can call other functions or even itself.
+# When a function calls itself, it is called a recursive function.
+# It must include a base case (a stop condition), so the calls end.
 
 def factorial(n):
     if n == 1:
         return 1
-    return n * factorial(n - 1)
+    return n * factorial(n - 1) # recursive call
 
-print(factorial(5))
+print(factorial(5)) # 120
+print(factorial(6)) # 720 
 
 
 print("\n# -----------------------------")

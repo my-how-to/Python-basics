@@ -42,6 +42,40 @@ def greet_person(name):
 
 greet_person("Alex")
 
+# Note: the function gets the argument's value, not the variable itself.
+# Reassigning the parameter does not affect the caller's variable.
+# This is clear with immutable scalars like ints and strings.
+age = 20
+
+def change_age(value):
+    value = 99
+    print("Inside function:", value)
+
+change_age(age)
+print("Outside function:", age)
+
+# However, for mutable types (like lists/dicts), modifying the object inside
+# the function affects the original object.
+# List variables store references to list objects, not the raw values.
+# The parameter receives that reference, so mutations affect the same list.
+
+numbers = [1, 2, 3]
+def append_number(lst):
+    lst.append(4) # mutating the list object
+    print("Inside function:", lst)
+    
+append_number(numbers) 
+print("Outside function:", numbers) # the original list is changed
+
+# But if you mutate the list object the parameter points to
+# (the object, not the name), the change is visible outside.
+
+def reassign_list(lst):
+    lst = [9, 8, 7]  # reassigning the parameter to a new list
+    print("Inside function:", lst)
+reassign_list(numbers)
+print("Outside function:", numbers) # the original list remains unchanged
+
 
 print("\n# -----------------------------")
 print("# 3. Return values")

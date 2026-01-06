@@ -1,6 +1,6 @@
-# Python Learning Reference
+# Python PCEP Learning Reference
 
-A compact personal repository containing everything I learn about Python — clean examples, explanations, and reusable code.
+A compact personal repository focused on the **Python Institute PCEP** exam — clean examples, explanations, and runnable exercises.
 
 ---
 
@@ -59,7 +59,8 @@ A compact personal repository containing everything I learn about Python — cle
 
 ## Goal
 
-Provide a short, organized reference to quickly review Python concepts and reuse patterns in real projects.
+Cover all topics required for the PCEP exam in a clean, review-friendly structure.
+Advanced Python topics and PCAP-level material live in a separate repository.
 
 ---
 

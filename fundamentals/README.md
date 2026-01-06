@@ -23,19 +23,20 @@ Below is a structured **table of contents** with a short description for every l
 | **10**   | [Lists (Reordered)](../collections/lists_reordered.py) | alternative list patterns and organization         | —                                                 |
 | **11**   | [Tuples](../collections/tuples.py)                   | immutable ordered collections, unpacking             | —                                                 |
 | **12**   | [Dictionaries](../collections/dictionaries.py)       | key/value storage, updates, looping, membership      | —                                                 |
-| **13**   | [Sets](../collections/sets.py)                       | unique items, set operations                         | —                                                 |
-| **14**   | [Strings](../collections/strings.py)                 | text handling, slicing, methods, formatting          | —                                                 |
-| **15**   | [Sequences (Negative Indices)](../collections/negative_indices.py) | slicing tricks, offsets, bounds           | —                                                 |
-| **16**   | [File Handling](../io/files.py)                      | read/write, append, with-statement, CSV              | [read more](../docs/references/files_documentation.md) |
-| **17**   | [Functions (Part 1)](../functions/functions_part1.py) | parameters, return, scope, reusable code            | —                                                 |
-| **18**   | [Functions (Part 2)](../functions/functions_part2.py) | advanced usage patterns                             | —                                                 |
-| **19**   | [Numeric Literals](../numbers/numeric_literals.py)   | decimal, binary, octal, hex notations                | —                                                 |
-| **20**   | [Modulus Operator](../numbers/modulus_operator.py)   | remainder math and common patterns                   | —                                                 |
-| **21**   | [Exponentiation Basics](../numbers/exponentiation_basics.py) | powers, precedence, and use cases               | —                                                 |
-| **22**   | [Octal & Hex](../numbers/octal_hexa.py)              | formatting, conversions, and literals                | —                                                 |
-| **23**   | [Multiple Assignment](../assignments/multiple_assignment.py) | unpacking and parallel assignment                | —                                                 |
-| **24**   | [Exception Handling](../exceptions/error_handling.py) | try/except, specific errors, finally                | [read more](../docs/references/error_handling_reference.md) |
-| **25**   | [Exception Rules](../exceptions/generic_except_rules.py) | ordering rules and best practices                 | —                                                 |
+| **13**   | [Tuples + Dictionaries](../collections/tuples_and_dictionaries.py) | tuple keys, tuple values, and unpacking         | —                                                 |
+| **14**   | [Sets](../collections/sets.py)                       | unique items, set operations                         | —                                                 |
+| **15**   | [Strings](../collections/strings.py)                 | text handling, slicing, methods, formatting          | —                                                 |
+| **16**   | [Sequences (Negative Indices)](../collections/negative_indices.py) | slicing tricks, offsets, bounds           | —                                                 |
+| **17**   | [File Handling](../io/files.py)                      | read/write, append, with-statement, CSV              | [read more](../docs/references/files_documentation.md) |
+| **18**   | [Functions (Part 1)](../functions/functions_part1.py) | parameters, return, scope, reusable code            | —                                                 |
+| **19**   | [Functions (Part 2)](../functions/functions_part2.py) | advanced usage patterns                             | —                                                 |
+| **20**   | [Numeric Literals](../numbers/numeric_literals.py)   | decimal, binary, octal, hex notations                | —                                                 |
+| **21**   | [Modulus Operator](../numbers/modulus_operator.py)   | remainder math and common patterns                   | —                                                 |
+| **22**   | [Exponentiation Basics](../numbers/exponentiation_basics.py) | powers, precedence, and use cases               | —                                                 |
+| **23**   | [Octal & Hex](../numbers/octal_hexa.py)              | formatting, conversions, and literals                | —                                                 |
+| **24**   | [Multiple Assignment](../assignments/multiple_assignment.py) | unpacking and parallel assignment                | —                                                 |
+| **25**   | [Exception Handling](../exceptions/error_handling.py) | try/except, specific errors, finally                | [read more](../docs/references/error_handling_reference.md) |
+| **26**   | [Exception Rules](../exceptions/generic_except_rules.py) | ordering rules and best practices                 | —                                                 |
 
 ---
 

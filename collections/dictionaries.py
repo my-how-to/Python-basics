@@ -125,6 +125,28 @@ for key, value in person.items():
 # values() and items() are dictionary-only; lists/tuples/sets don't have them.
 
 # ------------------------------------------------------------
+# Hopping through a dictionary by key name
+# ------------------------------------------------------------
+# Dict iteration is by key names (strings), not by numeric positions.
+
+# why use this pattern?
+# It allows you to traverse a sequence of related items where each item points to the next
+# using keys, enabling dynamic navigation through the data structure.
+# Example:
+next_city = {"Paris": "Rome", "Rome": "Berlin", "Berlin": "Paris"}
+current = next_city["Rome"]
+
+# This loop runs a fixed number of steps, and each step looks up by key name.
+for _ in range(len(next_city)):
+    current = next_city[current]
+
+print("final city after hops:", current)
+
+# is it used in real life?
+# Yes, this pattern is common in scenarios like linked data structures,
+# navigation systems, and state machines where each state or node points to the next.
+
+# ------------------------------------------------------------
 # Sorted keys/items (use case: predictable order for output)
 # ------------------------------------------------------------
 

@@ -86,6 +86,16 @@ try:
 except Exception as e:
     print(f"Error: {type(e).__name__}")  
 
+# Negative ranges can look like negative indices, but range() does not use indexing.
+# range() just generates integers; negative indices apply to sequences.
+# Common exam trap: range(-1, -2) is empty because step defaults to +1.
+lst = [i for i in range(-1, -2)]
+print("range(-1, -2) builds:", lst)  # []
+
+# To count down, you must give a negative step explicitly.
+descending = list(range(-1, -2, -1))
+print("range(-1, -2, -1) builds:", descending)  # [-1]
+
 print("\n# -----------------------------")
 print("# 7. COLLECTIONS WITHOUT NEGATIVE INDICES")
 print("# -----------------------------\n")

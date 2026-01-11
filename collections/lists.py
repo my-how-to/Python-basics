@@ -14,7 +14,15 @@
 # 
 # Contents:
 #   1. Lists — the Most Common Collection
+#     - append()
+#     - insert()
+#     - remove()
+#     - pop()
 #   2. Useful List Functions
+#     - index()
+#     - sort()
+#     - reverse()
+#     - copy()
 #   3. Nested Lists (Lists Inside Lists)
 #   4. extend()
 #

@@ -62,9 +62,21 @@ A compact personal repository focused on the **Python Institute PCEP** exam — 
 Cover all topics required for the PCEP exam in a clean, review-friendly structure.
 Advanced Python topics and PCAP-level material live in a separate repository.
 
+## Exam Notes
+
+Last updated: 2026-01-11
+
+PCEP exam questions often include caveats and hidden traps. This is good, since if you can detect them you reqaly uderstand the question. My goal is to pass within 2 tries.  
+Course completion took about 2 months alongside day-to-day activities, and I keep discovering new question traps.  
+That means I expect another ~2 months of practice and review using this repo, plus ongoing updates.
+The official pre-PCEP course alone is not enough to pass the exam.
+This is my personal conclusion and may not be true for others.
+Also, I'd like to know what percentage of exam takers used a voucher on their first attempt; I estimate it at around 30%.
+
 ---
 
 ## Use
 
 All files are self-contained and runnable.
 Open, read, run.
+⭐ this repo if you find this info useful.

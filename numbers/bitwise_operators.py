@@ -82,9 +82,12 @@ print("\n# -----------------------------")
 print("# 4. XOR (^): TOGGLING BITS")
 print("# -----------------------------\n")
 
-# XOR flips a bit if exactly one side has 1.
-start = 0b1010
-toggle = 0b0010
+# why use XOR?
+# XOR is useful for toggling bits, swapping values without a temporary variable, and checking differences.
+
+# XOR flips a bit if exactly one side has 1. otherwise, it becomes 0.
+start = 0b1010 # 10
+toggle = 0b0010 # 2
 flipped = start ^ toggle
 print("start:   ", format(start, "04b"))
 print("toggle:  ", format(toggle, "04b"))
@@ -94,6 +97,14 @@ print("XOR:     ", format(flipped, "04b"), "->", flipped)
 back = flipped ^ toggle
 print("XOR twice ->", format(back, "04b"), "(same as start)")
 
+a = 1 # 1 (01) in binary
+b = 0 # 0 (00) in binary
+a = a ^ b # a now 1 (01) b is 0 (00) unchanged
+b = a ^ b # b now 1 (01) a is 1 (01) unchanged
+# here a is 1 (01) and b is 1 (01)
+# now swap back
+a = a ^ b # a now 0 (00) b is 1 (01) unchanged
+print("Swapped a,b:", a, b)  # Expected: 0 1
 
 print("\n# -----------------------------")
 print("# 5. NOT (~): BITWISE INVERSION")

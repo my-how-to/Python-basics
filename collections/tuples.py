@@ -48,6 +48,9 @@ for fruit in fruits:
 # Immutability
 # ------------------------------------------------------------
 # fruits[1] = "orange"  # Error! Tuples are immutable
+# To "modify" a tuple, create a new one:
+new_fruits = fruits[:1] + ("orange",) + fruits[2:]
+print(new_fruits)  # ('apple', 'orange', 'cherry')
 
 print("\n# -----------------------------")
 print("# 2. Tuple Tricks")
@@ -81,6 +84,9 @@ print("See /assignments/multiple_assignment.py for advanced packing/unpacking pa
 # Swapping tuple values (unpacking)
 # ------------------------------------------------------------
 # Tuple unpacking lets you swap values without a temporary variable.
+# why use tuples for swapping?
+# It provides a concise and readable way to swap values in a single line.
+# Using a temporary variable would require three lines and be less clear.
 left = (1,)
 middle = (2,)
 right = (3,)
@@ -92,6 +98,8 @@ print(left, middle, right) # (2,) (3,) (1,)
 # Variables inside tuples
 # ------------------------------------------------------------
 # Tuples can store variables as elements.
+# This is useful for grouping related data.
+
 level = 42
 badge = (3, level)
 print(badge) # (3, 42)
@@ -100,6 +108,10 @@ print(badge) # (3, 42)
 # count() method
 # ------------------------------------------------------------
 # count() returns how many times a value appears in the tuple.
+# why not use 'in' to check existence first?
+# It's more efficient to use count() directly if you need the count.
+# Using 'in' would require two passes: one to check existence and another to count.
+# Using count() directly performs a single pass.
 marks = ("A", "B", "A", "C", "A")
 print(marks.count("A"))  # 3
 
@@ -107,6 +119,11 @@ print(marks.count("A"))  # 3
 # index() method
 # ------------------------------------------------------------
 # index() searches for a value and returns its position.
+# If the value is not found, it raises a ValueError.
+# why not use 'in' to check existence first?
+# It's more efficient to use index() directly if you know the value exists.
+# Using 'in' would require two passes: one to check existence and another to find the index.
+# Using index() directly performs a single pass.
 animals = ("cat", "dog", "cat")
 print(animals.index("cat"))  # 0
 

@@ -12,11 +12,12 @@
 # Contents:
 #   1. What is an expression?
 #   2. Arithmetic operators
-#   3. Comparison operators
-#   4. Logical operators
-#   5. Assignment operators
-#   6. Operator precedence
-#   7. Practical mini-examples
+#   3. Exponent operator (**)
+#   4. Comparison operators
+#   5. Logical operators
+#   6. Assignment operators
+#   7. Operator precedence
+#   8. Practical mini-examples
 #
 # ============================================================
 
@@ -48,14 +49,33 @@ print("Multiplication:", a * b)
 print("Division:", a / b)            # '/' always yields a float (2 / 1 -> 2.0); use '//' or int() to get integers.
 print("Floor Division:", a // b)     # removes decimal. Discards the fractional part and returns an integer (or float if operands are float).
 print("Modulus:", a % b)             # remainder
-print("Exponent:", a ** b)           # a^b
+print("Exponent:", a ** b)           # power
 
 # Modulus example explanation:
 # 10 // 3 = 3   (3 * 3 = 9)
 # 10 - 9 = 1    (remainder)
 
 print("\n# -----------------------------")
-print("# 3. COMPARISON OPERATORS")
+print("# 3. EXPONENT OPERATOR (**)")
+print("# -----------------------------\n")
+
+# Exponentiation raises a number to a power: base ** exponent.
+print("2 ** 3 =", 2 ** 3)     # 8
+print("5 ** 0 =", 5 ** 0)     # 1
+print("2 ** -3 =", 2 ** -3)   # 0.125 (reciprocal)
+print("9 ** 0.5 =", 9 ** 0.5) # 3.0 (square root) 3 to the power of 2 is 9
+print("27 ** (1/3) =", 27 ** (1/3)) # 3.0 (cube root) 3 to the power of 3 is 27
+print("16 ** 0.25 =", 16 ** 0.25) # 2.0 (fourth root) 2 to the power of 4 is 16
+
+# Exponentiation is right-associative:
+# 2 ** 3 ** 2 is 2 ** (3 ** 2) = 2 ** 9 = 512.
+print("2 ** 3 ** 2 =", 2 ** 3 ** 2)
+
+# Parentheses make intent explicit.
+print("(2 ** 3) ** 2 =", (2 ** 3) ** 2)  # 64
+
+print("\n# -----------------------------")
+print("# 4. COMPARISON OPERATORS")
 print("# -----------------------------\n")
 
 x = 5
@@ -78,7 +98,7 @@ print("x <= y:", x <= y)
 
 
 print("\n# -----------------------------")
-print("# 4. LOGICAL OPERATORS")
+print("# 5. LOGICAL OPERATORS")
 print("# -----------------------------\n")
 
 is_admin = True
@@ -95,7 +115,7 @@ print("NOT:", not is_admin)
 
 
 print("\n# -----------------------------")
-print("# 5. ASSIGNMENT OPERATORS")
+print("# 6. ASSIGNMENT OPERATORS")
 print("# -----------------------------\n")
 
 value = 10
@@ -122,7 +142,7 @@ print("After //= 4:", value)
 
 
 print("\n# -----------------------------")
-print("# 6. OPERATOR PRECEDENCE")
+print("# 7. OPERATOR PRECEDENCE")
 print("# -----------------------------\n")
 
 # Python evaluates according to rules (PEMDAS):
@@ -140,7 +160,7 @@ print("2 ** 3 ** 2 =", 2 ** 3 ** 2)  # Output: 512
 
 
 print("\n# -----------------------------")
-print("# 7. PRACTICAL MINI-EXAMPLES")
+print("# 8. PRACTICAL MINI-EXAMPLES")
 print("# -----------------------------\n")
 
 print("# Example 1 — Checking age range")

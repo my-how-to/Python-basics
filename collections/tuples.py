@@ -18,6 +18,8 @@
 # Contents:
 #   1. Tuples — Immutable Sequences
 #   2. Tuple Tricks
+#     - count()
+#     - index()
 #   3. Tuple Concatenation  
 #  
 print("\n# -----------------------------")

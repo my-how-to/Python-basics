@@ -59,6 +59,11 @@ print(fruits[::-1])  # ['cherry', 'banana', 'apple'] (reverses the list)
 # slicing with negative step skips every other from the end
 print(list(range(5))[::-2])  # [4, 2, 0]
 
+# Slice assignment replaces the selected range, not just a single item.
+lst = [1, 2, 3, 4, 5]
+lst[1:3] = [9, 8]
+print(lst)  # [1, 9, 8, 4, 5]
+
 # ------------------------------------------------------------
 # Changing Items
 # ------------------------------------------------------------
@@ -209,6 +214,10 @@ print(even_numbers) # [8, 2]
 # List repetition duplicates the list content N times.
 print([1, 2] * 2)   # [1, 2, 1, 2]
 print([1, 2] * 4)   # [1, 2, 1, 2, 1, 2, 1, 2]
+
+# what might confuse beginners is that len() counts total items:
+print(len([0] * 3 + [1] * 2))  # 5
+print([0] * 3 + [1] * 2)  # [0, 0, 0, 1, 1]
 
 # Be cautious with nested mutable objects:
 triplicated = [[]] * 3

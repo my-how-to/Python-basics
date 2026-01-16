@@ -95,6 +95,12 @@ print("# -----------------------------\n")
 # why use XOR?
 # XOR is useful for toggling bits, swapping values without a temporary variable, and checking differences.
 
+# list of common use cases for XOR:
+#   1) Toggling specific bits in a bitmask.
+#   2) Simple encryption/decryption by XORing with a key.
+#   3) Swapping two variables without a temporary variable.
+#   4) Finding the unique element in a list where every other element appears twice.
+
 # XOR flips a bit if exactly one side has 1. otherwise, it becomes 0.
 start = 0b1000 # 8
 toggle = 0b0010 # 2
@@ -107,14 +113,24 @@ print("XOR:     ", format(flipped, "04b"), "->", flipped) # 1010 -> 10
 # ----
 # 1010 -> 10
 
+# a list with every element twice except one
+data = [4, 1, 2, 1, 2]
+unique = 0
+for num in data:
+    unique ^= num
+print("Unique element in", data, "is", unique)  # 4
+
+
+
+
 # XOR with the same mask twice returns to original.
 back = flipped ^ toggle
 print("XOR twice ->", format(back, "04b"), "(same as start)")
 
-a = 1 # 1 (01) in binary
-b = 0 # 0 (00) in binary
-a = a ^ b # a now 1 (01) b is 0 (00) unchanged
-b = a ^ b # b now 1 (01) a is 1 (01) unchanged
+a = 1           # 1 (01) in binary
+b = 0           # 0 (00) in binary
+a = a ^ b       # a now 1 (01)  b is 0 (00) unchanged
+b = a ^ b       # b now 1 (01)  a is 1 (01) unchanged
 # here a is 1 (01) and b is 1 (01)
 # now swap back
 a = a ^ b # a now 0 (00) b is 1 (01) unchanged

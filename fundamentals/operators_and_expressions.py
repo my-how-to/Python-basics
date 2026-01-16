@@ -113,6 +113,13 @@ print("NOT:", not is_admin)
 # OR: True
 # NOT: False
 
+# Identity check: "is" checks if two variables point to the same object.
+value = None
+print("Is None?", value is None)
+print("Is not None?", value is not None)
+print("5 is 5.0:", 5 is 5.0) # False, different types
+print("5 == 5.0:", 5 == 5.0) # True, same value
+
 
 print("\n# -----------------------------")
 print("# 6. ASSIGNMENT OPERATORS")

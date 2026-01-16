@@ -80,6 +80,9 @@ print(fruits)  # ['apple', 'pear', 'orange', 'cherry', 'mango']
 # ------------------------------------------------------------
 # Removing Items
 # ------------------------------------------------------------
+# why use remove vs pop vs del?
+# because they have different use cases
+# Remove by value:
 fruits.remove("cherry")
 print(fruits)
 
@@ -95,6 +98,8 @@ print(fruits)
 del fruits[0]
 # del fruits  # removes the entire list
 print(fruits)
+# why not use del to remove items? because it removes references, not items specifically
+
 
 # Delete a slice (remove multiple items at once):
 fruits = ["apple", "banana", "cherry", "date", "elderberry"]
@@ -123,6 +128,8 @@ for fruit in fruits:
 # Loop with index:
 for index, fruit in enumerate(fruits):
     print(index, fruit)
+
+# enumerate() gives both index and value during iteration.
 
 # ------------------------------------------------------------
 # Getting List Length
@@ -234,8 +241,11 @@ print(independent, "len:", len(independent)) # [[], [], []] len: 3
 independent[0].append("wow")
 print(independent, "len:", len(independent)) # [['wow'], [], []]    
 
-triplicated[0].append("wow")
-print("Appending via one reference touches all:", triplicated)
+triplicated[0].append("now")
+print("Appending via one reference touches all:", triplicated) 
+# [['wow', 'now'], ['wow', 'now'], ['wow', 'now']]
+# why append does not replace 'wow' with 'now'? because append adds to the existing list
+# to replace, you would do triplicated[0] = ['now']
 
 
 print("\n# -----------------------------")

@@ -22,14 +22,29 @@
 #   Do not implement any extra functions.
 # ============================================================
 
-#def display_board(board):
-    # The function accepts one parameter containing the board's current status
-    # and prints it out to the console.
+def display_board(board):   
+    for row in board:
+        print("+","-" * 13, "+")
+        for cell in row:
+            print("| ", cell, end=" ")
+        print(" | ")
+    print("+","-" * 13, "+")
 
-
-#def enter_move(board):
+def enter_move(board):
     # The function accepts the board's current status, asks the user about their move, 
     # checks the input, and updates the board according to the user's decision.
+    try:
+        move = int(input("make your move :"))
+        if move > 1 or move < 9:
+            pass
+        else:
+            raise ValueError ("use only numbers from 1 to 9")
+
+    except:
+        pass
+
+
+               
 
 
 #def make_list_of_free_fields(board):
@@ -44,3 +59,38 @@
 
 #def draw_move(board):
     # The function draws the computer's move and updates the board.
+
+board = [
+    ["1","2","3"],
+    ["4","X","6"],
+    ["7","8","9"],
+]
+
+#while True:
+#    display_board(board)
+#    enter_move(board)
+
+    
+# print("ABCDE"[-2:1:-2])
+#why DC?
+# The slice starts at index -2 (which is 'D'), 
+# goes up to index 1 (which is 'B', exclusive), 
+# and steps backwards by 2, resulting in '
+# DC
+#print("ABCDE"[-2:1:-4]) # "D"
+
+#print("ABCDE"[-2:1]) # "D"
+#why D?
+# The slice starts at index -2 (which is 'D'),
+# goes up to index 1 (which is 'B', exclusive),
+# and uses the default step of 1, resulting in 'D' only.
+
+d = {"a": 1, "b": 2}
+v = d.get("c", 3) # if "c" not found, return 3
+d["c"] = 4 # add "c" with value 4 to the dictionary
+print(v + d["c"]) # 7
+# Explanation:
+# d.get("c", 3) looks for key "c" in the dictionary d
+# Since "c" is not found, it returns the default value 3
+# Then, d["c"] = 4 adds the key "c" with value
+# Finally, v + d["c"] computes 3 + 4, resulting in 7

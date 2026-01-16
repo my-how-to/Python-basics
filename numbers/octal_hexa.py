@@ -25,10 +25,10 @@ print("# -----------------------------\n")
 
 # Python supports multiple ways to write integers
 
-decimal = 42      # base 10 (default)
-binary  = 0b101010
-_octal  = 0o52
-hexadec = 0x2A
+decimal = 42        # base 10 (default)
+binary  = 0b101010  # base 2 (prefix 0b)
+_octal  = 0o52      # base 8 (prefix 0o)
+hexadec = 0x2A      # base 16 (prefix 0x)
 
 print(decimal, binary, _octal, hexadec)  # all are equal
 
@@ -87,9 +87,9 @@ print("# 5. Base conversions")
 print("# -----------------------------\n")
 
 # From string to integer
-print(int("101", 2))     # binary -> decimal
-print(int("17", 8))      # octal  -> decimal
-print(int("1A", 16))     # hex    -> decimal
+print(int("101", 2))     # binary -> decimal    - > 5
+print(int("17", 8))      # octal  -> decimal    - > 15
+print(int("1A", 16))     # hex    -> decimal    - > 26
 
 # From integer to string representation
 print(bin(10))            # '0b1010'

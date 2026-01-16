@@ -38,6 +38,7 @@ print("# 2. Case and normalization")
 print("# -----------------------------\n")
 
 print("MIXED".casefold())  # strong lowercasing
+# 'mixed'
 
 print("\n# -----------------------------")
 print("# 3. Splitting and partitioning")
@@ -45,6 +46,7 @@ print("# -----------------------------\n")
 
 line = "a,b,c,d"
 print(line.rsplit(",", 1))   # split from the right
+# ['a,b,c', 'd']
 
 path = "root/home/user"
 print(path.partition("/"))   # ('root', '/', 'home/user')
@@ -71,10 +73,10 @@ print(title.removesuffix(".txt")) # 'unhappy'
 print("\n# -----------------------------")
 print("# 6. Encoding and translation")
 print("# -----------------------------\n")
-
+# The function encodes the string into bytes using the specified encoding.
 message = "price: $5"
-encoded = message.encode("utf-8")
-print(encoded)
+encoded = message.encode("utf-8") #
+print(encoded) # b'price: $5'
 
 table = str.maketrans({"$": "USD "})
 print(message.translate(table))  # 'price: USD 5'

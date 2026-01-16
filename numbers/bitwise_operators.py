@@ -24,12 +24,14 @@ print("# 1. BITS AND BINARY DISPLAY")
 print("# -----------------------------\n")
 
 # Integers are stored in binary. bin() shows their bits.
+# a bit is a 0 or 1 representing off/on.
 value = 13  # 1101 in binary
 print("value:", value)
-print("binary:", bin(value))
+print("binary:", bin(value)) # 0b1101
 
-# Padding with zeros helps visualize widths.
-print("8-bit view:", format(value, "08b"))
+# Padding with zeros helps visualize widths. 
+# 08b means 8 bits, padded with leading zeros.
+print("8-bit view:", format(value, "08b")) # 00001101
 
 # -----------------------------
 # 1.1 QUICK MENTAL SHORTCUTS
@@ -52,15 +54,19 @@ print("# -----------------------------\n")
 number = 0b1101  # 13
 mask = 0b0101    # 5
 result = number & mask
-print("number:", format(number, "04b"))
+print("number:", format(number, "04b")) # 04b means 4 bits, padded with leading zeros
 print("mask:  ", format(mask, "04b"))
-print("AND:   ", format(result, "04b"), "->", result)
+print("AND:   ", format(result, "04b"), "->", result) # 0101 -> 5
+# 1101
+# 0101
+# ----
+# 0101
 
 # Typical use: check if a bit is set.
 # Is the 3rd bit (4's place) set?
 bit_to_test = 0b0100
 is_set = (number & bit_to_test) != 0
-print("3rd bit set?", is_set)
+print("3rd bit set?", is_set) # True because 1101 & 0100 = 0100 != 0
 
 
 print("\n# -----------------------------")
@@ -68,12 +74,16 @@ print("# 3. OR (|): SETTING BITS")
 print("# -----------------------------\n")
 
 # OR sets a bit if either side has 1.
-flags = 0b0010
-enable = 0b1000
+flags = 0b0010  # 2
+enable = 0b1000 # 8
 combined = flags | enable
 print("flags:   ", format(flags, "04b"))
 print("enable:  ", format(enable, "04b"))
-print("OR:      ", format(combined, "04b"), "->", combined)
+print("OR:      ", format(combined, "04b"), "->", combined) # 1010 -> 10
+# 0010
+# 1000
+# ----
+# 1010
 
 # Typical use: add a permission or feature flag.
 
@@ -86,12 +96,16 @@ print("# -----------------------------\n")
 # XOR is useful for toggling bits, swapping values without a temporary variable, and checking differences.
 
 # XOR flips a bit if exactly one side has 1. otherwise, it becomes 0.
-start = 0b1010 # 10
+start = 0b1000 # 8
 toggle = 0b0010 # 2
 flipped = start ^ toggle
 print("start:   ", format(start, "04b"))
 print("toggle:  ", format(toggle, "04b"))
-print("XOR:     ", format(flipped, "04b"), "->", flipped)
+print("XOR:     ", format(flipped, "04b"), "->", flipped) # 1010 -> 10
+# 1000
+# 0010
+# ----
+# 1010 -> 10
 
 # XOR with the same mask twice returns to original.
 back = flipped ^ toggle
@@ -114,7 +128,7 @@ print("# -----------------------------\n")
 # So ~x equals -(x + 1) due to two's complement rules.
 num = 6
 print("num:", num, "binary:", format(num, "08b"))
-print("~num:", ~num, "(equals -(num + 1))")
+print("~num:", ~num, "(equals -(num + 1))") # -7
 
 # To see a fixed-width inversion, mask it down.
 width_mask = 0b1111  # 4-bit mask

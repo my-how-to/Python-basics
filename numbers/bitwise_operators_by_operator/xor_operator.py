@@ -98,4 +98,4 @@ data = [4, 1, 2, 1, 2]
 unique = 0
 for num in data:
     unique ^= num
-print("Unique element in", data, "is", unique)
+print("Unique element in", data, "is", unique) # 4

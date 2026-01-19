@@ -19,7 +19,11 @@ print("\n# -----------------------------")
 print("# 1. QUICK INTUITION")
 print("# -----------------------------\n")
 
-# Shifting left by n is like multiplying by 2^n.
+# Shifting left by n is like multiplying by 2^n. 
+# It is like 3 * 2 ** n.
+
+# 0    << 1 -> 0000 (0 becomes 0)
+# 01   << 1 -> 0010 (1 becomes 2)
 # 0011 << 1 -> 0110 (3 becomes 6)
 # 0011 << 2 -> 1100 (3 becomes 12)
 
@@ -30,8 +34,8 @@ print("# -----------------------------\n")
 
 base = 3
 print("base:", base, "binary:", format(base, "04b"))
-print("base << 1:", base << 1, "binary:", format(base << 1, "04b"))
-print("base << 2:", base << 2, "binary:", format(base << 2, "04b"))
+print("base << 1:", base << 1, "binary:", format(base << 1, "04b")) # 6
+print("base << 2:", base << 2, "binary:", format(base << 2, "04b")) # 12
 
 
 print("\n# -----------------------------")
@@ -56,4 +60,4 @@ print("# -----------------------------\n")
 low = 0b1010
 high = 0b0101
 packed = (high << 4) | low
-print("packed:", format(packed, "08b"), "->", packed)
+print("packed:", format(packed, "08b"), "->", packed) # 01011010 -> 90

@@ -19,7 +19,8 @@ print("\n# -----------------------------")
 print("# 1. QUICK INTUITION")
 print("# -----------------------------\n")
 
-# Shifting right by n is like integer division by 2^n (for positives).
+# Shifting right by n is like integer division by 2^n (for positives). 
+# it is like 12 // 2 ** n 
 # 1100 >> 1 -> 0110 (12 becomes 6)
 # 1100 >> 2 -> 0011 (12 becomes 3)
 
@@ -30,8 +31,8 @@ print("# -----------------------------\n")
 
 value = 20
 print("value:", value, "binary:", format(value, "08b"))
-print("value >> 1:", value >> 1)
-print("value >> 2:", value >> 2)
+print("value >> 1:", value >> 1) # 10
+print("value >> 2:", value >> 2) # 5
 
 
 print("\n# -----------------------------")

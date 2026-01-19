@@ -101,11 +101,17 @@ print("\n# -----------------------------")
 print("# 5. LOGICAL OPERATORS")
 print("# -----------------------------\n")
 
+# Logical Operators (and, or) DO NOT Return Booleans
+print(5 and 0)      # 0
+print(0 or 7)       # 7
+print("" and "Hi")  # ""
+print("Hello" or "")# "Hello"
+
 is_admin = True
 is_active = False
 
-print("AND:", is_admin and is_active)
-print("OR:", is_admin or is_active)
+print("AND:", is_admin and is_active) # False
+print("OR:", is_admin or is_active) # True
 print("NOT:", not is_admin)
 
 # Example Output:
@@ -214,3 +220,6 @@ print("\nVisualizing i // 4 values:")
 
 for i in range(20):
     print(f"i: {i}, i // 4: {i // 4}")
+
+
+

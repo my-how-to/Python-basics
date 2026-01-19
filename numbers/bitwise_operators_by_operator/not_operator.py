@@ -29,7 +29,11 @@ print("# -----------------------------\n")
 
 num = 6
 print("num:", num, "binary:", format(num, "08b"))
-print("~num:", ~num, "(equals -(num + 1))")
+print("~num:", ~num, "(equals -(num + 1))") # -(6 + 1) = -7
+
+for i in range(10):
+    print(~i, end=" ")  # prints -1, -2, -3, ..., -10
+
 
 
 print("\n# -----------------------------")
@@ -42,10 +46,12 @@ print("# -----------------------------\n")
 #   3) Bitwise complement in protocols or encodings.
 
 # Clear a bit using AND + NOT.
+# This is often used to turn off specific bits in a bitmask.
+# a bitmask is a sequence of bits that can enable or disable certain features.
 flags = 0b1111
 bit_to_clear = 0b0010
-flags &= ~bit_to_clear
-print("flags after clear:", format(flags, "04b"))
+flags &= ~bit_to_clear # clear the 2nd bit
+print("flags after clear:", format(flags, "04b")) # 1101
 
 
 print("\n# -----------------------------")

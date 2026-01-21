@@ -65,12 +65,12 @@ print("\n# -----------------------------")
 print("# 3. USEFUL STRING METHODS")
 print("# -----------------------------\n")
 
-name = "alex"
+name = "Alex"
 
 print("Upper:", name.upper())               # Upper: ALEX
 print("Lower:", name.lower())               # Lower: alex
 print("Title:", name.title())               # Title: Alex
-print("Swapcase:", name.swapcase())         # Swapcase: ALEX
+print("Swapcase:", name.swapcase())         # Swapcase: aLEX
 print("Capitalized:", name.capitalize())    # Capitalized: Alex
 
 
@@ -239,3 +239,8 @@ for row in range(1, height + 1):
 #   ***
 #  ****
 # *****
+
+# Comparing strings (lexicographical order)
+print("apple" < "banana")   # True because 'a' < 'b' 
+print("orange" > "grape")   # True because 'o' > 'g'
+print("a" < "B")            # False because lowercase 'a' > uppercase 'B' ASCII-wise 

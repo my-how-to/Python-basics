@@ -12,15 +12,13 @@
 #       - len() performance characteristics
 #       - custom classes implementing __len__()
 #
-# Each section prints a separator for clear output.
 # ============================================================
 
 
-# ============================================================
-# 1. WHAT len() DOES
-# ============================================================
 
-print("\n--- SECTION 1: What len() Does ---")
+print("\n# -----------------------------")
+print("# SECTION 1: What len() Does ")
+print("# -----------------------------\n")
 
 numbers = [10, 20, 30]
 text = "Python"

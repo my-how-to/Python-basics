@@ -25,6 +25,7 @@
 #     - copy()
 #   3. Nested Lists (Lists Inside Lists)
 #   4. extend()
+#   5. list()
 #
 print("\n# -----------------------------")
 print("# 1. Lists — the Most Common Collection")
@@ -280,3 +281,34 @@ nums.extend("67")  # strings are iterables too
 # notice how each character is added separately
 # also they are added as strings, not numbers, this is different from int lists
 print(nums)  # [1, 2, 3, 4, 5, '6', '7']
+
+print("\n# -----------------------------")
+print("# 5. list()")
+print("# -----------------------------\n")
+
+# list() is a constructor used to create a new list object. 
+# While often grouped with methods, it is technically a built-in class 
+# that builds a list from other data types.
+
+# Primary Uses
+# Empty List: 
+#  - Calling list() with no arguments returns an empty list [].
+empty_list = list()
+
+# Type Conversion: 
+#  - It converts any iterable (like a string, tuple, set, or dictionary) into a list.
+string_list = list("hello")  # ['h', 'e', 'l', 'l', 'o']
+
+# Shallow Copy: 
+#  - Calling list(another_list) creates a new list object containing references to the original items. 
+original = [1, 2, 3]
+shallow_copy = list(original)
+shallow_copy.append(4)
+print("original:", original)        # [1, 2, 3]
+print("shallow_copy:", shallow_copy) # [1, 2, 3, 4]
+
+# Performance Note
+# For creating an empty list, using square brackets [] is significantly faster (roughly 3x)
+# than calling list() because the literal [] is a single bytecode instruction, while list()
+# requires a function call and name lookup. 
+# Use list() specifically for conversion or when you need a factory function.

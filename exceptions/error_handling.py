@@ -105,6 +105,7 @@ def example_else_finally():
 # ------------------------------------------------------------
 # 5. RAISING YOUR OWN EXCEPTIONS
 # ------------------------------------------------------------
+# raise lets you trigger exceptions manually.
 
 def example_raising():
     print("\n# --- RAISING CUSTOM EXCEPTIONS ---")

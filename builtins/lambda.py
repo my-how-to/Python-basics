@@ -80,6 +80,7 @@ print("# 4. LAMBDAS WITH map()")
 print("# -----------------------------\n")
 
 numbers = [1, 2, 3, 4]
+# map applies the lambda to each item in the list
 
 # Doubles each number
 doubled = list(map(lambda x: x * 2, numbers))

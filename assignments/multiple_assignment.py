@@ -26,8 +26,8 @@
 print("\n--- SECTION 1: Basic multiple assignment ---")
 
 a, b = 10, 20
-print("a:", a)
-print("b:", b)
+print("a:", a) # 10
+print("b:", b) # 20
 
 # Python packs the right side into a tuple automatically:
 # (10, 20) is assigned to (a, b).
@@ -93,7 +93,7 @@ def min_and_max(values):
     return min(values), max(values)  # returns a tuple
 
 mn, mx = min_and_max([3, 7, 1, 9])
-print("min:", mn, "max:", mx)
+print("min:", mn, "max:", mx) # Output: min: 1 max: 9
 
 
 # ============================================================
@@ -102,8 +102,8 @@ print("min:", mn, "max:", mx)
 print("\n--- SECTION 6: Extended unpacking ---")
 
 a, *middle, b = [1, 2, 3, 4, 5]
-print("a:", a)
-print("middle:", middle)
-print("b:", b)
+print("a:", a)  # 1
+print("middle:", middle) # [2, 3, 4]
+print("b:", b)  # 5
 
 # * collects all remaining items into a list.

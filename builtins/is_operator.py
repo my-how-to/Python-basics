@@ -26,7 +26,8 @@ row = [0, 0, 0]
 grid_bad = [row] * 3           # repeats the same list reference
 grid_good = [row.copy() for _ in range(3)]
 
-grid_bad[0][1] = 99
+grid_bad[0][1] = 99 # [0][1] means "first row, second column"]
+grid_good[0][1] = 99
 print("grid_bad:", grid_bad)   # every row reflects the change
 print("grid_good:", grid_good) # only first row changes
 

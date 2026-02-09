@@ -95,8 +95,9 @@ print("# 6. Iterable Unpacking")
 print("# -----------------------------\n")
 
 values = ["python", "rocks", 2024]
-print(*values)                        # expands into positional args
-print("CSV:", *values, sep=", ")
+print(values)   # prints the list as-is -> ['python', 'rocks', 2024]
+print(*values)  # unpacks the list into separate arguments  -> python rocks 2024
+print("CSV:", *values, sep=", ") # unpacks with custom separator -> CSV: python, rocks, 2024
 
 
 print("\n# -----------------------------")
@@ -134,9 +135,10 @@ print("\n# -----------------------------")
 print("# 9. Pitfalls & Tips")
 print("# -----------------------------\n")
 
-print("Joining numbers directly:", 1, 2, 3)
-print("Better for strings:", " ".join(str(n) for n in (1, 2, 3)))
+print("Joining numbers directly:", 1, 2, 3) # This prints "1 2 3" with spaces, not "123". The numbers are converted to strings and separated by the default sep=" ".
+print("Better for strings:", " ".join(str(n) for n in (1, 2, 3))) # This correctly joins the numbers into "1 2 3" by converting each to a string and using join.
 
-print("Beware repeated sep usage:", "path", "to", "file", sep="\\")
-print(r"Better to join manually: \"\\\".join(...)")  # raw string for clarity
-
+print("Beware repeated sep usage:", "path", "to", "file", sep="\\") # This will print "path\to\file" but the sep is applied between each argument, so it will actually print "path\to\file" with extra backslashes if not careful.
+print(r"Better to join manually: \"\\\".join(...)")  # Using join with a raw string for the separator avoids confusion and ensures the intended output.
+# manual join example:
+print("Manual join:", "\\".join(["path", "to", "file"])) # This correctly joins the strings into "path\to\file" without extra backslashes.

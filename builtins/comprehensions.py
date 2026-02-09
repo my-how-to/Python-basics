@@ -75,7 +75,7 @@ print(pairs_loop)
 
 # Generator expressions look like list comprehensions, but use parentheses:
 gen = (n ** 2 for n in numbers)
-print(next(gen))  # lazily produces values on demand
+print("next(gen): ", next(gen))  # lazily produces values on demand
 # next(gen)  # call repeatedly to get next values
 
 # Tuple-style parentheses vs list brackets for visual contrast

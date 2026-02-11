@@ -144,7 +144,7 @@ print(num_float, type(num_float))
 # Python raises a NameError.
 
 # Example — undefined variable
-# print(x) # xr is not defined
+# print(xr) # xr is not defined
 
 # Error:
 # NameError: name 'xr' is not defined

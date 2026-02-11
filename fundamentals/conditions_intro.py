@@ -83,6 +83,8 @@ c = True
 
 print("a or b and c ->", a or b and c)       # and runs before or
 print("(a or b) and c ->", (a or b) and c)  # parentheses change grouping
+print("not a and b ->", not a and b)       # not runs before and
+print("not (a and b) ->", not (a and b))   # parentheses change grouping
 
 
 print("\n# -----------------------------")
@@ -96,7 +98,7 @@ print("# -----------------------------\n")
 balance = 150
 account_on_hold = False
 has_funds = balance > 0
-can_withdraw = has_funds and not account_on_hold
+can_withdraw = has_funds and not account_on_hold # 'not' is used first, then 'and' combines the results
 print("Can withdraw?", can_withdraw)
 
 # Example 2: Combined expressions

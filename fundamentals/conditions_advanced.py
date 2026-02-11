@@ -114,12 +114,15 @@ print("# 6. SHORTHAND EXPRESSIONS")
 print("# -----------------------------\n")
 
 # Ternary (conditional expression)
+# Syntax: value_if_true if condition else value_if_false
+# ternary means "one line if" — it's a compact way to assign or return values based on a condition.
 score = 92
 result = "Pass" if score >= 70 else "Retake"
 print("Exam result:", result)
 
 # Walrus operator (Python 3.8+) lets you test & assign in one expression.
 # Useful for compact loops or validation checks.
+# := assigns and returns the value, so you can use it in conditions.
 
 if (user_input := input("Enter your nickname: ")):
     print("Nickname saved:", user_input)

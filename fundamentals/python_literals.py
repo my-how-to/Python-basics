@@ -56,7 +56,8 @@ print("scientific:", sci_val)
 # Complex numbers use the suffix j.
 print("complex literal (3+4j):", 3 + 4j)
 print("imaginary-only literal 5j:", 5j)
-
+# complex literal are not commonly used but are part of Python's numeric types, 
+# especially in scientific computing contexts.
 
 print("\n# -----------------------------")
 print("# 3. Text & bytes literals")
@@ -98,8 +99,8 @@ print("not True:", not True)                # False
 # None is a singleton; use "is" for identity checks.
 missing_value = None
 print("missing_value is None:", missing_value is None)
-print("None == None:", None == None)
-print("None is None:", None is None)
+print("None == None:", None == None) # True, but "is" is more precise for None checks
+print("None is None:", None is None) # True, because None is a singleton object
 
 # None participates in logical expressions (it behaves like False in boolean context).
 print("None and True:", None and True)   # None

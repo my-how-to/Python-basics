@@ -156,8 +156,11 @@ def example_validation_loop():
 #   ZeroDivisionError     dividing by zero
 #   TypeError             wrong data types for an operation
 #   FileNotFoundError     missing file
+
+#   LookupError           base class for KeyError and IndexError. Use LookupError to catch both.
 #   KeyError              missing dictionary key
 #   IndexError            list index out of range
+
 #   AttributeError        trying to use a missing attribute
 #   NameError             using undefined variables
 #   PermissionError       cannot access a file
@@ -237,3 +240,15 @@ def example_safe_conversion():
             print(num * 2)
         except ValueError:
             print(f"Skipping invalid value: {val}")
+
+
+# Looking up multiple exception types in the wrong order can cause unexpected behavior.
+# IndexError is a subclass of LookupError, so if you catch LookupError first, 
+# it will also catch IndexError and the specific except block for IndexError will never run.
+try:
+    l = [1, 2]
+    print(l[2])
+except LookupError:
+    print("L")
+except IndexError:
+    print("I")

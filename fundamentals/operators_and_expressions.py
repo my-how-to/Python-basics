@@ -102,7 +102,7 @@ print("# 5. LOGICAL OPERATORS")
 print("# -----------------------------\n")
 
 # Logical Operators (and, or) DO NOT Return Booleans
-print(5 and 0)      # 0
+print(5 and 0)      # 0, because 0 is falsy
 print(0 or 7)       # 7
 print("" and "Hi")  # ""
 print("Hello" or "")# "Hello"
@@ -121,8 +121,8 @@ print("NOT:", not is_admin)
 
 # Identity check: "is" checks if two variables point to the same object.
 value = None
-print("Is None?", value is None)
-print("Is not None?", value is not None)
+print("Is None?", value is None) # True, because value is exactly None (the singleton object representing "no value")
+print("Is not None?", value is not None) # False, because value is None, so it is not "not None"
 print("5 is 5.0:", 5 is 5.0) # False, different types
 print("5 == 5.0:", 5 == 5.0) # True, same value
 
@@ -143,7 +143,7 @@ print("After -= 3:", value)
 value *= 2
 print("After *= 2:", value)
 
-value //= 4
+value //= 4 # value = value // 4
 print("After //= 4:", value)
 
 # Example Output:
@@ -153,6 +153,12 @@ print("After //= 4:", value)
 # After *= 2: 24
 # After //= 4: 6
 
+# order of operations matters:
+x = 3
+x += x == 3
+print(x) # Output: 4 (x == 3 is True, which is 1 when added to x)
+# This is a common pattern where the result of a comparison (True/False) is used in an arithmetic operation. 
+# In this case, since x == 3 is True, it evaluates to 1, and x becomes 3 + 1 = 4.
 
 print("\n# -----------------------------")
 print("# 7. OPERATOR PRECEDENCE")
@@ -170,6 +176,9 @@ print("With parentheses:", expr2)       # With parentheses: 20
 # Exponentiation (`**`) is also special: it is evaluated right-to-left.
 # Example: 2 ** 3 ** 2 is 2 ** (3 ** 2) = 512.
 print("2 ** 3 ** 2 =", 2 ** 3 ** 2)  # Output: 512
+
+# Modulus and floor division have the same precedence as multiplication/division.
+print(10 % 3 * 2) # Output: 2, because it's evaluated as (10 % 3) * 2 = 1 * 2 = 2
 
 # bitwise operators have lower precedence than arithmetic operators, but higher than comparison operators.
 result = 1 << 2 + 1

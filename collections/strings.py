@@ -244,3 +244,9 @@ for row in range(1, height + 1):
 print("apple" < "banana")   # True because 'a' < 'b' 
 print("orange" > "grape")   # True because 'o' > 'g'
 print("a" < "B")            # False because lowercase 'a' > uppercase 'B' ASCII-wise 
+
+# Note: String concatenation with + creates a new string each time, which can be inefficient in loops. 
+# For large concatenations, consider using str.join() or StringIO for better performance.
+# Example of inefficient concatenation:
+x = input("Enter 5: ") # user inputs "5"
+print(x + 1) # TypeError: can only concatenate str (not "int") to str

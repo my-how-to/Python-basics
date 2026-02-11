@@ -77,6 +77,15 @@ reassign_list(numbers)
 print("Outside function:", numbers) # the original list remains unchanged
 
 
+# missing parameter causes an error
+# greet_person()  # TypeError: missing 1 required positional argument: 'name'
+
+# Too many arguments also causes an error.
+def calc(a, b):
+    return a + b
+
+print(calc(1))  # TypeError: calc() missing 1 required positional argument: 'b'
+
 print("\n# -----------------------------")
 print("# 3. Return values")
 print("# -----------------------------\n")
@@ -105,6 +114,18 @@ def notify(user):
 notify("Alex")  # return value ignored on purpose
 status = notify("Mara")
 print(status)
+
+# Note: functions stop executing when they hit a return statement, so any code after return is not run.
+def example():
+    print("This will be printed")
+    return
+    print("This will NOT be printed")
+
+def example():
+    print("This will be printed")
+    return 1
+    return 2  # unreachable code, never executed
+
 
 
 print("\n# -----------------------------")

@@ -81,9 +81,10 @@ person["age"] = 33
 person.update({"city": "Chisinau", "age": 34})
 
 # pop() returns and removes a key, while del just deletes it.
-person.pop("city")
-del person["age"]
-print(person)
+print(person.pop("city")) # removes "city" and returns its value: "Chisinau"
+print(person) # {'name': 'Alex', 'age': 34, 'job': 'QA Engineer'}
+del person["age"] # removes the "age" key without returning its value
+print(person) # {'name': 'Alex', 'job': 'QA Engineer'}
 
 # popitem() removes and returns the most recently inserted pair.
 last_item = person.popitem()
@@ -138,7 +139,7 @@ current = next_city["Rome"]
 
 # This loop runs a fixed number of steps, and each step looks up by key name.
 for _ in range(len(next_city)):
-    current = next_city[current]
+     current = next_city[current]
 
 print("final city after hops:", current)
 
@@ -152,10 +153,14 @@ print("final city after hops:", current)
 
 grades = {"Biology": 88, "Math": 95, "Art": 76}
 
+# why use sorted()?
+# It provides a way to iterate over dictionary keys or items in a predictable, sorted order,
+# which is useful for displaying data in a user-friendly way or when order matters for processing.  
 print("\n# Sorted keys")
 for subject in sorted(grades):
     print(subject, grades[subject]) # sorted keys 
 
+# sorted() can also be used on items to sort by keys or values.
 print("\n# Sorted items (key-value pairs)")
 for subject, score in sorted(grades.items()):
     print(subject, "→", score)
@@ -185,7 +190,7 @@ if "name" in person:
 
 print(len(person))
 
-
+# Merging dictionaries with update() is a common way to combine data from multiple sources.
 d1 = {'Adam Smith': 'A', 'Judy Paxton': 'B+'}
 d2 = {'Mary Louis': 'A', 'Patrick White': 'C'}
 d3 = {}

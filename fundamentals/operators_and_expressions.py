@@ -171,6 +171,10 @@ print("With parentheses:", expr2)       # With parentheses: 20
 # Example: 2 ** 3 ** 2 is 2 ** (3 ** 2) = 512.
 print("2 ** 3 ** 2 =", 2 ** 3 ** 2)  # Output: 512
 
+# bitwise operators have lower precedence than arithmetic operators, but higher than comparison operators.
+result = 1 << 2 + 1
+print("1 << 2 + 1 =", result) # Output: 8, because it's evaluated as 1 << (2 + 1) = 1 << 3 = 8
+
 
 print("\n# -----------------------------")
 print("# 8. PRACTICAL MINI-EXAMPLES")

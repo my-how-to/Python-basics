@@ -65,6 +65,14 @@ lst = [1, 2, 3, 4, 5]
 lst[1:3] = [9, 8]
 print(lst)  # [1, 9, 8, 4, 5]
 
+# Slicing with a single index returns an item, while slicing with a range returns a list.
+lst = [1, 2, 3, 4]
+lst = lst[1:-1] # this keeps only the middle items, removing the first and last
+lst = lst[-1]   # this keeps only the last item of the sliced list, which is 3
+# lst is now an integer, not a list, because we sliced with a single index instead of a range
+print("The last item of the sliced list is:", lst, type(lst))  # 3     
+
+
 # ------------------------------------------------------------
 # Changing Items
 # ------------------------------------------------------------
@@ -170,6 +178,13 @@ print("x references the same list object as y:", x is y)                # True
 # NOTE: For numbers, x = x + 1 and x += 1 are equivalent because ints are immutable.
 # With lists, x += [value] performs in-place modification (like list.extend),
 # and x = x + [value] builds a brand-new list, which is why aliases behave differently.
+
+# trap: using append() in an assignment causes confusion because append() returns None, not the modified list.
+res = [1, 2, 3]
+res = res.append(4) # this does not modify res in place, but instead assigns None to res
+#res.append(5) # this modidifies the list that res used to reference, but now res is None, so this will raise an error
+print(len(res))
+
 
 
 print("\n# -----------------------------")

@@ -31,6 +31,10 @@ num = 6
 print("num:", num, "binary:", format(num, "08b"))
 print("~num:", ~num, "(equals -(num + 1))") # -(6 + 1) = -7
 
+num = -1
+print("num:", num, "binary:", format(num, "08b"))
+print("~num:", ~num, "(equals -(num + 1))") # -(-1 + 1) = 0
+
 for i in range(10):
     print(~i, end=" ")  # prints -1, -2, -3, ..., -10
 

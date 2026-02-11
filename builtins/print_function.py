@@ -142,3 +142,8 @@ print("Beware repeated sep usage:", "path", "to", "file", sep="\\") # This will 
 print(r"Better to join manually: \"\\\".join(...)")  # Using join with a raw string for the separator avoids confusion and ensures the intended output.
 # manual join example:
 print("Manual join:", "\\".join(["path", "to", "file"])) # This correctly joins the strings into "path\to\file" without extra backslashes.
+
+ 
+# This will print 1 because True is treated as 1 and False as 0 in arithmetic operations. 
+# To avoid this, ensure that you are not accidentally mixing boolean values with numbers when using print.
+print(True+False)

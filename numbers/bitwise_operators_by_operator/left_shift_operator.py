@@ -61,3 +61,8 @@ low = 0b1010
 high = 0b0101
 packed = (high << 4) | low
 print("packed:", format(packed, "08b"), "->", packed) # 01011010 -> 90
+
+print("\n# -----------------------------")
+print("# 5. with other operators")
+print("# -----------------------------\n")
+

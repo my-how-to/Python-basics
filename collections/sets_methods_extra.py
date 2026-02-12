@@ -21,7 +21,7 @@ print("# -----------------------------\n")
 colors = {"red", "green", "blue"}
 colors.discard("green")
 colors.discard("missing")  # no error
-print(colors)
+print(colors) # {'red', 'blue'}
 
 print("\n# -----------------------------")
 print("# 2. intersection_update()")

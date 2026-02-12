@@ -65,13 +65,13 @@ print("\n# -----------------------------")
 print("# 3. USEFUL STRING METHODS")
 print("# -----------------------------\n")
 
-name = "Alex"
+name = "Alex QA"
 
-print("Upper:", name.upper())               # Upper: ALEX
-print("Lower:", name.lower())               # Lower: alex
-print("Title:", name.title())               # Title: Alex
-print("Swapcase:", name.swapcase())         # Swapcase: aLEX
-print("Capitalized:", name.capitalize())    # Capitalized: Alex
+print("Upper:", name.upper())               # Upper: ALEX QA
+print("Lower:", name.lower())               # Lower: alex qa
+print("Title:", name.title())               # Title: Alex Qa
+print("Swapcase:", name.swapcase())         # Swapcase:     aLEX qa
+print("Capitalized:", name.capitalize())    # Capitalized:  Alex qa 
 
 
 print("\n# -----------------------------")
@@ -81,8 +81,8 @@ print("# -----------------------------\n")
 text = "bananas are yellow"
 
 print("Index of 'a':", text.find("a"))   # first occurrence
-print("Last index of 'a':", text.rfind("a"))
-print("Count of 'a':", text.count("a"))
+print("Last index of 'a':", text.rfind("a")) # last occurrence
+print("Count of 'a':", text.count("a")) # how many times 'a' appears
 print("Contains 'yellow'?", "yellow" in text)
 print("Index of 'na' (index):", text.index("na"))  # searches for value
 
@@ -111,7 +111,7 @@ print("# -----------------------------\n")
 csv_line = "Alex,25,QA"
 
 parts = csv_line.split(",")
-print("Split:", parts)
+print("Split:", parts, type(parts).__name__)  # Split: ['Alex', '25', 'QA'] <class 'list'>
 
 joined = "-".join(parts)
 print("Joined:", joined)
@@ -244,9 +244,13 @@ for row in range(1, height + 1):
 print("apple" < "banana")   # True because 'a' < 'b' 
 print("orange" > "grape")   # True because 'o' > 'g'
 print("a" < "B")            # False because lowercase 'a' > uppercase 'B' ASCII-wise 
+# ASCI a, b, c... are greater than A, B, C... because lowercase letters have higher ASCII values than uppercase letters.
+# ASCI values: 'A' = 65, 'B' = 66, ..., 'Z' = 90, 'a' = 97, 'b' = 98, ..., 'z' = 122
 
 # Note: String concatenation with + creates a new string each time, which can be inefficient in loops. 
 # For large concatenations, consider using str.join() or StringIO for better performance.
 # Example of inefficient concatenation:
 x = input("Enter 5: ") # user inputs "5"
+print(x * 1) # Output: 5
+print(x * 2) # Output: 55
 print(x + 1) # TypeError: can only concatenate str (not "int") to str

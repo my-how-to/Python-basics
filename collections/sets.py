@@ -46,9 +46,12 @@ b = {3, 4, 5, 6}
 # ------------------------------------------------------------
 # Basic Operations
 # ------------------------------------------------------------
-print(a.union(b))         # {1, 2, 3, 4, 5, 6}
-print(a.intersection(b))  # {3, 4}
-print(a.difference(b))    # {1, 2}
+print(a.union(b))           # {1, 2, 3, 4, 5, 6}
+print(a)                    # {1, 2, 3, 4} - original set a is unchanged
+print(a.intersection(b))    # {3, 4}
+print(a)                    # {1, 2, 3, 4} - original set a is unchanged
+print(a.difference(b))      # {1, 2}
+print(a)                    # {1, 2, 3, 4} - original set a is unchanged
 
 # ------------------------------------------------------------
 # Additional Useful Operations

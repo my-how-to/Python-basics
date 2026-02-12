@@ -86,6 +86,14 @@ fruits.append("mango")     # adds to the end
 fruits.insert(1, "pear")   # adds at position 1
 print(fruits)  # ['apple', 'pear', 'orange', 'cherry', 'mango']
 
+# Note: append() adds its argument as a single item, even if it's a list.
+lst = [1, 2, 3]
+lst.append([4, 5])
+print(len(lst)) # 4, because the last item is a single list object, not two separate items
+print(lst)     # [1, 2, 3, [4, 5]]
+
+
+
 # ------------------------------------------------------------
 # Removing Items
 # ------------------------------------------------------------

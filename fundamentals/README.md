@@ -41,13 +41,3 @@ Below is a structured **table of contents** with a short description for every l
 | **28**   | [Exception Rules](../exceptions/generic_except_rules.py) | ordering rules and best practices                 | —                                                 |
 
 ---
-
-## Learning Goal
-
-By completing all lessons, you will be ready for:
-
-* Python Institute **PCEP** Certification
-* Python Institute **PCAP** Certification
-* Real-world automation, scripting, QA/testing, or backend basics.
-
----

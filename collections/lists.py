@@ -72,7 +72,14 @@ lst = lst[-1]   # this keeps only the last item of the sliced list, which is 3
 # lst is now an integer, not a list, because we sliced with a single index instead of a range
 print("The last item of the sliced list is:", lst, type(lst))  # 3     
 
-
+# out of range slicing does not raise an error, it just returns an empty list
+s = "abc"
+print(s[10:])  # empty string, no error → slicing is forgiving with out-of-range indices
+# However, trying to access a single index that is out of range does raise an error:
+try:
+    print(s[10])    # error → single index out of range raises IndexError   
+except Exception as e:
+    print(f"Error: {type(e).__name__}")  # Error: IndexError
 # ------------------------------------------------------------
 # Changing Items
 # ------------------------------------------------------------
@@ -191,7 +198,10 @@ print("x references the same list object as y:", x is y)                # True
 res = [1, 2, 3]
 res = res.append(4) # this does not modify res in place, but instead assigns None to res
 #res.append(5) # this modidifies the list that res used to reference, but now res is None, so this will raise an error
-print(len(res))
+try:
+    print(len(res))
+except Exception as e:
+    print(f"Error: {type(e).__name__}")  # Error: TypeError because res is now None, not a list
 
 
 
@@ -323,12 +333,28 @@ empty_list = list()
 string_list = list("hello")  # ['h', 'e', 'l', 'l', 'o']
 
 # Shallow Copy: 
-#  - Calling list(another_list) creates a new list object containing references to the original items. 
+#  - Calling list(another_list) creates a new list object containing references to the original items.
+# These references mean that if the original list contains mutable objects (like other lists), 
+# changes to those objects will be reflected in both lists, but adding or removing items from one list will not affect the other. 
 original = [1, 2, 3]
 shallow_copy = list(original)
 shallow_copy.append(4)
 print("original:", original)        # [1, 2, 3]
 print("shallow_copy:", shallow_copy) # [1, 2, 3, 4]
+
+shallow_copy[0] = 0 # this modifies the shallow copy, but does not affect the original list because integers are immutable
+print("original after modifying shallow_copy:", original)        # [1, 2, 3]
+print("shallow_copy after modification:", shallow_copy)          # [0, 2, 3, 4]
+
+original.append([5, 6]) # this modifies the original list by adding a new inner list, but does not affect the shallow copy because it only contains references to the original items, not the original list itself
+print("original after appending a new inner list:", original)        # [1, 2, 3, [5, 6]]
+print("shallow_copy after original modification:", shallow_copy)          # [0, 2, 3, 4]
+
+origial_with_mutable = [[1, 2], [3, 4]]
+shallow_copy_with_mutable = list(origial_with_mutable)
+shallow_copy_with_mutable[0][0] = a # this modifies the inner list that both the original and the shallow copy reference, so it affects both lists
+print("original with mutable after modification:", origial_with_mutable)                # [[a, 2], [3, 4]]
+print("shallow copy with mutable after modification:", shallow_copy_with_mutable)       # [[a, 2], [3, 4]]
 
 # Performance Note
 # For creating an empty list, using square brackets [] is significantly faster (roughly 3x)

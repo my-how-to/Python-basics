@@ -161,7 +161,7 @@ def example_validation_loop():
 #   KeyError              missing dictionary key
 #   IndexError            list index out of range
 
-#   AttributeError        trying to use a missing attribute
+#   AttributeError        trying to use a missing attribute in a function or class
 #   NameError             using undefined variables
 #   PermissionError       cannot access a file
 #

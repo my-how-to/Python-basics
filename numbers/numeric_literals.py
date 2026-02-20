@@ -89,6 +89,24 @@ print("pi:", pi_approx)
 print("small value:", high_precision)
 print("trailing decimal:", trailing)
 
+print(0.1 + 0.2 == 0.3)
+# In Python, the expression 0.1 + 0.2 == 0.3 evaluates to False because 
+# floating-point numbers are stored using IEEE 754 binary representation, 
+# and many decimal fractions (including 0.1, 0.2, and 0.3) cannot be represented exactly in binary. 
+# As a result, 0.1 + 0.2 produces a value slightly different from the mathematical 
+# 0.3 (approximately 0.30000000000000004), so an exact equality comparison fails. 
+# The order of + and == does not change the outcome here because operator precedence 
+# ensures that addition is evaluated before comparison (+ has higher precedence than ==), 
+# meaning the sum is computed first and then compared. 
+# 
+# In general, you should never compare floating-point numbers using == due to precision artifacts; 
+# instead, compare within a tolerance, for example abs(a - b) < 1e-9, 
+abs((0.1 + 0.2) - 0.3) < 1e-9
+
+# or preferably use math.isclose(a, b) from the standard library, 
+# which is designed specifically for safe floating-point comparisons.
+import math
+math.isclose(0.1 + 0.2, 0.3)
 
 print("\n# -----------------------------")
 print("# 7. SCIENTIFIC NOTATION")

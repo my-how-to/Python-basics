@@ -20,6 +20,7 @@
 #   2. Tuple Tricks
 #     - count()
 #     - index()
+#     - sorted()
 #   3. Tuple Concatenation  
 #  
 print("\n# -----------------------------")
@@ -54,6 +55,11 @@ for fruit in fruits:
 new_fruits = fruits[:1] + ("orange",) + fruits[2:]
 print(new_fruits)  # ('apple', 'orange', 'cherry')
 
+# you can modify mutable elements inside a tuple, but not the tuple itself:
+app_data = (1, 2, ["start", "end"]) # app_data[2] = ["stop", "end"]  # Error! Can't change the tuple's structure
+app_data[2][0] = "stop" # This works because we're modifying the list inside the tuple, not the tuple itself.
+print(app_data) # (1, 2, ['stop', 'end']) - the tuple is unchanged, but the list inside it is modified.
+
 print("\n# -----------------------------")
 print("# 2. Tuple Tricks")
 print("# -----------------------------\n")
@@ -62,7 +68,10 @@ print("# -----------------------------\n")
 # Single-element tuple
 # ------------------------------------------------------------
 t = ("apple",)
-print(type(t))
+print(type(t)) # <class 'tuple'>
+
+single_val = (50) # This is just an integer, not a tuple!
+print(type(single_val)) # <class 'int'> - not a tuple!
 
 # ------------------------------------------------------------
 # tuple() constructor
@@ -96,6 +105,11 @@ right = (3,)
 left, middle, right = middle, right, left
 print(left, middle, right) # (2,) (3,) (1,)
 
+vals = (10, 20, 30) 
+# to swap the first two values, we can unpack and reassign them in one line:
+vals[0], vals[1] = vals[1], vals[0] # This creates a new tuple with the swapped values and assigns it back to vals.
+print(vals) # (20, 10, 30) - values swapped, but the tuple itself is unchanged (a new tuple is created)
+
 # ------------------------------------------------------------
 # Variables inside tuples
 # ------------------------------------------------------------
@@ -126,8 +140,35 @@ print(marks.count("A"))  # 3
 # It's more efficient to use index() directly if you know the value exists.
 # Using 'in' would require two passes: one to check existence and another to find the index.
 # Using index() directly performs a single pass.
+# index() only returns the first occurrence, so if you need all positions, you'd have to loop through the tuple.
 animals = ("cat", "dog", "cat")
 print(animals.index("cat"))  # 0
+
+# ------------------------------------------------------------
+# sorted()
+# ------------------------------------------------------------
+# sorted() returns a new list of sorted elements from the tuple.
+# why use sorted() instead of sort()?
+# sorted() works on any iterable and returns a new sorted list, while sort() is a
+# method that modifies a list in place and can only be used on lists.
+numbers = (3, 1, 2)
+sorted_numbers = sorted(numbers)
+print("sorted() returns a list ", sorted_numbers, type(sorted_numbers))  # [1, 2, 3] - sorted() returns a new list, not a tuple. If you want a sorted tuple, you can convert it back
+sorted_tuple = tuple(sorted_numbers)
+print(sorted_tuple), type(sorted_numbers) # (1, 2, 3) - now we have a sorted tuple.
+
+# ------------------------------------------------------------
+# Tuples slicing
+# ------------------------------------------------------------
+
+# Slicing works the same as with lists, but it returns a new tuple.
+numbers = (10, 20, 30, 40, 50)
+print(numbers[1:4], type(numbers))  # (20, 30, 40) <class 'tuple'>
+
+versions = (1.0, 1.1, 1.2, 1.3)
+subset = versions[1:2]
+print(subset) # (1.1,) - still a tuple, even with one element, because of the comma.
+
 
 print("\n# -----------------------------")
 print("# 3. Tuple Concatenation")
@@ -137,3 +178,22 @@ print("# -----------------------------\n")
 a = (1, 2, 3)
 b = (4, 5)
 print(a + b)  # (1, 2, 3, 4, 5)
+
+cfg_params = (1024, "admin", "v1")
+cfg_params[1] = "root"
+print(cfg_params) #
+
+
+# ------------------------------------------------------------
+# Tuples Сomparison
+# ------------------------------------------------------------
+# Tuples are compared element-wise, starting from the first element.
+# The first pair of elements that differ determine the outcome of the comparison.
+# If all elements are equal, the tuples are considered equal.
+print((1, 2, 3) == (1, 2, 3)) # True
+print((1, 2, 3) == (1, 2, 4)) # False   
+print((1, 2, 3) < (1, 2, 4)) # True - because the first two elements are equal, but the third element (3) is less than 4.
+print((1, 2) < (1, 2, 0)) # True - because the first two elements are equal, but the first tuple has fewer elements than the second, so it's considered less than the second tuple.
+
+# Tuples comparisons are useful for sorting and ordering data, 
+# as they allow you to compare complex structures in a straightforward way.

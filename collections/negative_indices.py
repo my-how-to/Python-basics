@@ -58,8 +58,7 @@ print(letters[:-2])     # ['a', 'b', 'c', 'd', 'e']  # all but last 2
 print(letters[-4:-1])   # ['d', 'e', 'f']  # from -4 to -2
 print(letters[-5:])     # ['c', 'd', 'e', 'f', 'g']  # from -5 to end       
 print(letters[:])       # entire list
-
-
+print(letters[-1:-4])   # [] trap question.
 
 # Mixed example:
 print(letters[1:-1])     # everything except first and last

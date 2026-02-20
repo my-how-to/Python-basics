@@ -30,6 +30,8 @@
 #   3. Looping Through a Dictionary
 #     - values()
 #     - items()
+#     - hopping through a dictionary by key name
+#     - sorted keys/items
 #   4. Checking Membership & Length
 #   5. keys()
 #   6. setdefault()
@@ -113,10 +115,11 @@ print("\n# -----------------------------")
 print("# 3. Looping Through a Dictionary")
 print("# -----------------------------\n")
 
-# Iterating over the dictionary gives keys; .values() and .items() expose more detail.
+# Iterating over the dictionary gives keys; 
 for key in person:
     print(key)  # keys only
 
+# .values() and .items() expose more detail.
 for value in person.values():
     print(value)  # values only
 
@@ -164,6 +167,10 @@ for subject in sorted(grades):
 print("\n# Sorted items (key-value pairs)")
 for subject, score in sorted(grades.items()):
     print(subject, "→", score)
+
+# sorted() returns a new list of sorted keys or items, so it doesn't modify the original dictionary.
+print("\nOriginal dictionary remains unchanged:", grades)
+print("Sorted keys:", sorted(grades)) # ['Art', 'Biology', 'Math']
 
 # ------------------------------------------------------------
 # values() use case (summaries, thresholds)
@@ -230,3 +237,12 @@ print(profile)  # {'name': 'Maria', 'city': 'Unknown'}
 # If the key exists, it returns the current value and does nothing.
 profile.setdefault("name", "Other")
 print(profile["name"])  # Maria
+
+
+staff = {"IT": 15, "HR": 5}
+total = 0
+
+for dept in staff:
+    total += staff[dept]
+
+print(total) # 20

@@ -42,6 +42,9 @@ print(" — appended thanks to end=''")  # resumes normal newline here
 
 print("countdown", 3, 2, 1, sep=" 🕒 ", end="... go!\n")
 
+# trap exam question
+# print(sep='-', "A", "B") 
+# In Python-Positionsargumenten (eingestellte Argumente) werden immer nur einige Argumente hinzugefügt (key=value).
 
 print("\n# -----------------------------")
 print("# 3. Redirecting Output")
@@ -147,3 +150,6 @@ print("Manual join:", "\\".join(["path", "to", "file"])) # This correctly joins 
 # This will print 1 because True is treated as 1 and False as 0 in arithmetic operations. 
 # To avoid this, ensure that you are not accidentally mixing boolean values with numbers when using print.
 print(True+False)
+
+print(0.1 + 0.2 == 0.3) # False
+print(None == None) # True

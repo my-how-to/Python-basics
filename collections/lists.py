@@ -361,3 +361,6 @@ print("shallow copy with mutable after modification:", shallow_copy_with_mutable
 # than calling list() because the literal [] is a single bytecode instruction, while list()
 # requires a function call and name lookup. 
 # Use list() specifically for conversion or when you need a factory function.
+
+s = "Python"
+print("start > end in negative step", s[1:5:-1]) 

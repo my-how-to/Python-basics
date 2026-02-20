@@ -203,3 +203,12 @@ while True:
 # - Use enumerate() instead of range(len(iterable)) to keep code readable.
 # - Prefer for loops when you know the number of iterations in advance.
 # - Keep loop bodies small; refactor repeated work into functions.
+
+
+counter = 0
+for i in range(2):
+    for j in range(3):
+        if j == 1:
+            continue
+        counter += 1
+print(counter) # 4 (skips when j == 1, so counts for j=0 and j=2 in each of the 2 iterations of i)

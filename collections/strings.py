@@ -205,7 +205,11 @@ greeting = "Hello, " + "world!"
 print("Concatenation:", greeting)   # Hello, world!
 
 echo = "ha" * 3
-print("Repetition:", echo)          # hahaha
+print("Repetition: ha", echo)          # hahaha
+
+# order does not matter
+echo = 3 * "+" 
+print("Repetition: +", echo)          # +++
 
 # A number less than or equal to zero produces an empty string.
 print("Zero repeat:", "ha" * 0)       # Zero repeat:  (empty string)

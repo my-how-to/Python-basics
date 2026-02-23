@@ -98,8 +98,10 @@ lst = [1, 2, 3]
 lst.append([4, 5])
 print(len(lst)) # 4, because the last item is a single list object, not two separate items
 print(lst)     # [1, 2, 3, [4, 5]]
-
-
+users = ["Alice", "Bob"]
+users.insert(0, "Charlie")
+print(users) # ['Charlie', 'Alice', 'Bob']
+print(users.insert(0, "Charlie")) # None, because insert() modifies the list in place and returns None.
 
 # ------------------------------------------------------------
 # Removing Items

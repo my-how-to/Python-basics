@@ -1,11 +1,10 @@
 # ==========================================================
-#               Method: count()
+#               count()
 # ==========================================================
 #
 # 1) WHAT IS count()?
 #
-# count() returns the number of occurrences of a value
-# inside a collection.
+# count() returns the number of occurrences of a value inside a collection.
 #
 # It does NOT modify the collection.
 #

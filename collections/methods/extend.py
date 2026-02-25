@@ -1,11 +1,10 @@
 # ==========================================================
-#               Method: extend()
+#               extend()
 # ==========================================================
 #
 # 1) WHAT IS extend()?
 #
-# extend() is a list method that adds elements from another
-# iterable to the end of the list.
+# extend() is a list method that adds elements from another iterable to the end of the list.
 #
 # It modifies the list in place.
 # It does NOT return a new list.

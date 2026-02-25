@@ -176,7 +176,7 @@ lst.insert(1, 100)
 # Supported: set
 # Returns True/False
 
-{1}.issubset({1,2})
+{1}.issubset({1,2}) # True - {1} is a subset of {1, 2} because all elements of {1} are also in {1, 2}.
 
 # =====================================================
 # issuperset(other)
@@ -192,7 +192,7 @@ lst.insert(1, 100)
 # Supported: dict
 # Returns view of key-value pairs
 
-{"a":1}.items()
+{"a":1}.items() # dict_items([('a', 1)]) - items() returns a view object that displays a list of dictionary's key-value tuple pairs.
 
 # =====================================================
 # keys()
@@ -208,8 +208,8 @@ lst.insert(1, 100)
 # Supported: list, tuple, set, dict, str
 # Returns number of elements
 
-len([1,2])
-len("hello")
+len([1,2]) # 2
+len("hello") # 5 - len() counts the number of characters in a string, including spaces and punctuation.
 
 # =====================================================
 # max(iterable)
@@ -218,7 +218,7 @@ len("hello")
 # Returns largest element
 
 max([3,1,2])
-max("abc")
+max("abc") # 'c' - max() returns the largest character based on Unicode code point value. In this case, 'c' has a higher code point than 'a' and 'b', so it is considered the largest character in the string "abc".
 
 # =====================================================
 # min(iterable)
@@ -249,14 +249,14 @@ min("abc")
 # Removes last inserted pair
 # Returns tuple (key, value)
 
-{"a":1}.popitem()
+{"a":1}.popitem() # removes and returns the last inserted key-value pair as a tuple: ('a', 1). In Python 3.7 and later, dictionaries maintain insertion order, so popitem() will remove the most recently added item.
 
 # =====================================================
 # remove(value)
 # =====================================================
 # Supported: list, set
 # Removes element
-# Raises error if not found
+# Raises ValueError if not found (list) or does nothing if not found (set)
 # Returns: None
 
 [1,2,3].remove(2)
@@ -355,4 +355,4 @@ sum((1,2,3))
 # Supported: dict
 # Returns view of values
 
-{"a":1}.values()
+{"a":1}.values() # dict_values([1]) - values() returns a view object that displays a list of all the values in the dictionary. In this case, it shows [1] because the value associated with key "a" is 1.

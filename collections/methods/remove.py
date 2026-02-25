@@ -1,11 +1,10 @@
 # ==========================================================
-#               Method: remove()
+#               remove()
 # ==========================================================
 #
 # 1) WHAT IS remove()?
 #
-# remove() deletes the FIRST occurrence of a value
-# from a list.
+# remove() deletes the FIRST occurrence of a value from a list.
 #
 # It modifies the list in-place.
 #

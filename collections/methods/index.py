@@ -1,11 +1,10 @@
 # ==========================================================
-#               Method: index()
+#               index()
 # ==========================================================
 #
 # 1) WHAT IS index()?
 #
-# index() searches for a value and returns the position
-# (index) of its FIRST occurrence.
+# index() searches for a value and returns the position (index) of its FIRST occurrence.
 #
 # If the value is not found → raises ValueError.
 #

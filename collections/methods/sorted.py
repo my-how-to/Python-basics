@@ -1,11 +1,10 @@
 # ==========================================================
-#               Built-in Function: sorted()
+#               sorted()
 # ==========================================================
 #
 # 1) WHAT IS sorted()?
 #
-# sorted() is a built-in function that returns
-# a NEW sorted list from any iterable.
+# sorted() is a built-in function that returns a NEW sorted list from any iterable.
 #
 # It does NOT modify the original object.
 #

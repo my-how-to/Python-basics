@@ -364,5 +364,10 @@ print("shallow copy with mutable after modification:", shallow_copy_with_mutable
 # requires a function call and name lookup. 
 # Use list() specifically for conversion or when you need a factory function.
 
+# empty string, because the slice with a negative step is looking for items in reverse order, 
+# but the start index (1) is less than the stop index (5), so it does not find any items to include in the result.
 s = "Python"
 print("start > end in negative step", s[1:5:-1]) 
+
+s = "Python"
+print(s[5:1:-1]) # 'nohty' because the slice with a negative step is looking for items in reverse order, starting from index 5 (the last character 'n') and moving backwards to index 1 (the character 'y'), including all characters in between. The stop index (1) is exclusive, so it does not include the character at index 1 in the result.

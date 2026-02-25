@@ -1,138 +1,169 @@
-# =====================================================
-#               Method: pop()
-# =====================================================
+# ==========================================================
+#               pop()
+# ==========================================================
 #
-# pop() removes an element AND returns it.
+# 1) WHAT IS pop()?
 #
-# It is supported by:
-#   - list
-#   - set
-#   - dict
+# pop() removes and RETURNS an element from a collection.
 #
-# It is NOT supported by:
-#   - tuple (immutable)
-#   - str (immutable)
+# It modifies the collection in-place.
 #
-# pop() always modifies the collection (in-place).
+# Return value:
+# - list → removed element
+# - dict → removed value
+# - set  → removed element
 #
-# =====================================================
-# 1. list.pop()
-# =====================================================
+# ==========================================================
+# 2) CORE SYNTAX
+# ==========================================================
 #
-# Syntax:
-#   list.pop(index)
+# list.pop()
+# list.pop(index)
 #
-# If index is omitted → removes last element.
-# Returns removed element.
-# Raises IndexError if list is empty or index invalid.
+# dict.pop(key)
+# dict.pop(key, default)
+#
+# set.pop()
+#
+# ==========================================================
+# 3) WHERE CAN IT BE USED?
+# ==========================================================
+#
+# Available on:
+# - list
+# - dict
+# - set
+#
+# Not available on:
+# - tuple (immutable)
+# - str (immutable)
+#
+# ==========================================================
+# 4) HOW IT WORKS INTERNALLY (CONCEPTUAL CORE)
+# ==========================================================
+#
+# LIST VERSION (conceptual):
+#
+# def pop(self, index=-1):
+#     value = self[index]
+#     del self[index]
+#     return value
+#
+#
+# DICT VERSION (conceptual):
+#
+# def pop(self, key):
+#     value = self[key]
+#     del self[key]
+#     return value
+#
+#
+# Key ideas:
+# - Removes element
+# - Returns removed value
+# - Raises error if key/index invalid (unless default provided in dict)
+#
+# ==========================================================
+# 5) LIST EXAMPLES
+# ==========================================================
 
-lst = [10, 20, 30]
+numbers = [10, 20, 30, 40]
 
-value = lst.pop()
-# Removes 30
-# lst becomes [10, 20]
-# value = 30
+print(numbers.pop())
+# Output: 40  (removes last element)
 
-value = lst.pop(0)
-# Removes 10
-# lst becomes [20]
-# value = 10
+print(numbers)
+# [10, 20, 30]
 
-# Time Complexity:
-#   pop()        → O(1)
-#   pop(0)       → O(n)  (shifts elements)
+print(numbers.pop(1))
+# Output: 20  (removes element at index 1)
+
+print(numbers)
+# [10, 30]
 
 
-# =====================================================
-# 2. set.pop()
-# =====================================================
-#
-# Syntax:
-#   set.pop()
-#
-# Removes and returns a RANDOM element.
-# (Sets are unordered.)
-# Raises KeyError if set is empty.
+# ==========================================================
+# 6) DICTIONARY EXAMPLES
+# ==========================================================
+
+d = {"a": 1, "b": 2}
+
+print(d.pop("a"))
+# Output: 1
+
+print(d)
+# {'b': 2}
+
+# With default (prevents KeyError)
+
+print(d.pop("x", 0))
+# Output: 0
+
+
+# ==========================================================
+# 7) SET EXAMPLE
+# ==========================================================
 
 s = {1, 2, 3}
 
-value = s.pop()
-# Removes random element
-# s size decreases by 1
+removed = s.pop()
 
-# Time Complexity:
-#   Average: O(1)
+print(removed)
+# Removes arbitrary element (sets are unordered)
+
+print(s)
 
 
-# =====================================================
-# 3. dict.pop()
-# =====================================================
+# ==========================================================
+# 8) ERROR CASES
+# ==========================================================
+
+lst = [1, 2, 3]
+
+# lst.pop(10)
+# Raises IndexError
+
+d = {"a": 1}
+
+# d.pop("b")
+# Raises KeyError
+
+
+# ==========================================================
+# 9) pop() VS remove() VS del
+# ==========================================================
 #
-# Syntax:
-#   dict.pop(key)
-#   dict.pop(key, default)
+# pop(index)
+#   - Removes by INDEX
+#   - Returns removed value
 #
-# Removes key-value pair and returns VALUE.
-# Raises KeyError if key missing (unless default provided).
-
-d = {"a": 10, "b": 20}
-
-value = d.pop("a")
-# value = 10
-# d becomes {"b": 20}
-
-# Safe version:
-value = d.pop("x", 0)
-# No error
-# value = 0
-
-# Time Complexity:
-#   Average: O(1)
-
-
-# =====================================================
-# 4. COMPARISON TABLE
-# =====================================================
+# remove(value)
+#   - Removes by VALUE
+#   - Returns None
 #
-# Collection | pop() behavior                   | Returns       | Error if empty?
-# ---------------------------------------------------------------
-# list       | Removes by index (default last)  | removed item  | Yes (IndexError)
-# set        | Removes random element           | removed item  | Yes (KeyError)
-# dict       | Removes by key                   | value only    | Yes (KeyError)
+# del list[index]
+#   - Removes by INDEX
+#   - Does NOT return value
 #
-# =====================================================
-# 5. IMPORTANT EXAM TRAPS
-# =====================================================
+# ==========================================================
+# 10) TIME COMPLEXITY
+# ==========================================================
 #
-# 1. set.pop() does NOT remove the "first" element.
-#    Sets are unordered.
+# list.pop()      → O(1)  (last element)
+# list.pop(index) → O(n)  (shift elements)
+# dict.pop(key)   → O(1) average
+# set.pop()       → O(1) average
 #
-# 2. dict.pop() returns VALUE, not (key, value).
+# ==========================================================
+# 11) KEY RULES
+# ==========================================================
 #
-# 3. list.pop() without argument removes LAST element.
+# - pop() removes AND returns.
+# - Modifies collection in-place.
+# - list default removes last element.
+# - dict.pop() can accept default value.
+# - set.pop() removes arbitrary element.
 #
-# 4. pop() modifies the original object.
-#
-# 5. pop() is not available for tuple or str.
-#
-# =====================================================
-# 6. PRACTICAL EXAMPLE
-# =====================================================
-
-# Simple stack behavior using list
-
-stack = []
-
-stack.append(1)
-stack.append(2)
-stack.append(3)
-
-while stack:
-    print("Removed:", stack.pop())
-
-# Output:
-# Removed: 3
-# Removed: 2
-# Removed: 1
-
-# Demonstrates LIFO behavior (Last-In, First-Out)
+# ==========================================================
+# END OF LESSON
+# ==========================================================

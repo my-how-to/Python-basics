@@ -18,6 +18,7 @@
 # Contents:
 #   1. Tuples — Immutable Sequences
 #   2. Tuple Tricks
+#     - tuple()
 #     - count()
 #     - index()
 #     - sorted()
@@ -108,6 +109,10 @@ a, *b = vals
 print(type(a)) # 10         <class 'int'>   - a is assigned the first value, which is an integer.
 print(type(b)) # [20, 30]   <class 'list'>  - b is assigned the remaining values as a list because of the * operator.
 
+# raise ValueError if unpacking fails or if there are too many values to unpack:
+# x, y = (1, 2, 3)  # ValueError: too many values to unpack (expected 2)
+# x, y, z = (1, 2)  # ValueError: not enough values to unpack (expected 3)
+
 # ------------------------------------------------------------
 # Swapping tuple values (unpacking)
 # ------------------------------------------------------------
@@ -194,7 +199,8 @@ print(subset) # (1.1,) - still a tuple, even with one element, because of the co
 # Slicing a tuple that results in a single element still returns a tuple if you use the comma.
 tup = ([],) * 2
 tup[0].append(1)
-print(tup) # ([1], [1]) - both elements refer to the same list object, so modifying one modifies the other. This is a common pitfall when using mutable objects inside tuples.
+print(tup) # ([1], [1]) - both elements refer to the same list object, so modifying one modifies the other. 
+# This is a common pitfall when using mutable objects inside tuples.
 
 
 print("\n# -----------------------------")

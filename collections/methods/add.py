@@ -1,12 +1,12 @@
 # ==========================================================
-#               append()
+#               add()
 # ==========================================================
 #
-# 1) WHAT IS append()?
+# 1) WHAT IS add()?
 #
-# append() adds a SINGLE element to the END of a list.
+# add() adds a SINGLE element to a set.
 #
-# It modifies the list in-place.
+# It modifies the set in-place.
 #
 # Return value: None
 #
@@ -14,20 +14,20 @@
 # 2) CORE SYNTAX
 # ==========================================================
 #
-# list.append(element)
+# set.add(element)
 #
-# element → any Python object
+# element → must be hashable (immutable type)
 #
 # ==========================================================
 # 3) WHERE CAN IT BE USED?
 # ==========================================================
 #
 # Available only on:
-# - list
+# - set
 #
 # Not available on:
+# - list (use append())
 # - tuple (immutable)
-# - set (use add())
 # - dict (use assignment or update())
 #
 # ==========================================================
@@ -36,102 +36,120 @@
 #
 # Rough conceptual implementation:
 #
-# def append(self, element):
-#     self[len(self):] = [element]
-#
-# or conceptually:
-#
-# place element at index len(self)
-# increase list size by 1
+# def add(self, element):
+#     if element not in self:
+#         insert element into internal hash table
 #
 # Key idea:
-# - Amortized O(1) time complexity
-# - List may resize internally if capacity is full
+# - Uses hashing
+# - Average time complexity: O(1)
+# - Worst case: O(n) (rare hash collisions)
+#
+# Sets store elements in a hash table.
 #
 # ==========================================================
 # 5) BASIC EXAMPLES
 # ==========================================================
 
-# ---------- SIMPLE APPEND ----------
+# ---------- SIMPLE ADD ----------
 
-numbers = [1, 2, 3]
+numbers = {1, 2, 3}
 
-numbers.append(4)
+numbers.add(4)
 
 print(numbers)
-# Output: [1, 2, 3, 4]
+# Output: {1, 2, 3, 4}
 
 
-# ---------- APPENDING DIFFERENT TYPES ----------
+# ---------- ADDING DUPLICATE ----------
 
-data = []
+numbers.add(2)
 
-data.append(10)
-data.append("hello")
-data.append([1, 2])
+print(numbers)
+# Output: {1, 2, 3, 4}
+# Duplicate ignored (sets do not allow duplicates)
+
+
+# ---------- ADDING DIFFERENT TYPES ----------
+
+data = set()
+
+data.add(10)
+data.add("hello")
+data.add((1, 2))
 
 print(data)
-# Output: [10, 'hello', [1, 2]]
+# Output: {10, 'hello', (1, 2)}
+
+# data.add([1, 2])  # TypeError: list is not hashable
 
 
 # ==========================================================
 # 6) IMPORTANT BEHAVIOR
 # ==========================================================
-
-# append() adds the element AS-IS
-
-lst = [1, 2]
-lst.append([3, 4])
-
-print(lst)
-# Output: [1, 2, [3, 4]]
-# Notice: the list [3, 4] is added as ONE element
-
-
+#
+# add() inserts the element AS-IS.
+#
+# The element must be:
+# - Immutable
+# - Hashable
+#
+# Allowed:
+# - int
+# - float
+# - str
+# - tuple (if it contains immutable elements)
+#
+# Not allowed:
+# - list
+# - dict
+# - set
+#
 # ==========================================================
-# 7) append() vs extend()
+# 7) add() vs update()
 # ==========================================================
 #
-# append(x)
+# add(x)
 #     → adds x as a single element
 #
-# extend(iterable)
+# update(iterable)
 #     → adds each element of iterable separately
 #
 # Example:
 #
-# a = [1, 2]
+# s = {1, 2}
 #
-# a.append([3, 4])
-# # [1, 2, [3, 4]]
+# s.add((3, 4))
+# # {1, 2, (3, 4)}
 #
-# a = [1, 2]
-# a.extend([3, 4])
-# # [1, 2, 3, 4]
+# s = {1, 2}
+# s.update([3, 4])
+# # {1, 2, 3, 4}
 #
 # ==========================================================
 # 8) COMMON MISTAKE
 # ==========================================================
 
-numbers = [1, 2, 3]
+numbers = {1, 2, 3}
 
-result = numbers.append(4)
+result = numbers.add(4)
 
 print(result)
 # Output: None
 #
-# append() modifies in-place and returns None.
+# add() modifies in-place and returns None.
 # Do NOT assign its result to a variable.
 #
 # ==========================================================
 # 9) KEY RULES
 # ==========================================================
 #
-# - Only for lists.
-# - Modifies list in-place.
+# - Only for sets.
+# - Modifies set in-place.
 # - Returns None.
 # - Adds exactly ONE element.
-# - O(1) amortized time.
+# - O(1) average time.
+# - Element must be hashable.
 #
 # ==========================================================
 # END OF LESSON

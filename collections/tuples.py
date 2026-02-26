@@ -18,11 +18,14 @@
 # Contents:
 #   1. Tuples — Immutable Sequences
 #   2. Tuple Tricks
-#     - tuple()
-#     - count()
-#     - index()
-#     - sorted()
+#     - tuple() constructor
+#     - tuple unpacking
+#     - swapping values
+#     - variables inside tuples
+#     - tuple slicing
+#     - single-element tuples
 #   3. Tuple Concatenation  
+#     - comparison
 #  
 print("\n# -----------------------------")
 print("# 1. Tuples — Immutable Sequences")
@@ -136,53 +139,6 @@ print(left, middle, right) # (2,) (3,) (1,)
 level = 42
 badge = (3, level)
 print(badge) # (3, 42)
-
-# ------------------------------------------------------------
-# count() method
-# ------------------------------------------------------------
-# count() returns how many times a value appears in the tuple.
-#
-# why not use 'in' to check existence first?
-# It's more efficient to use count() directly if you need the count.
-# Using 'in' would require two passes: one to check existence and another to count.
-# Using count() directly performs a single pass.
-marks = ("A", "B", "A", "C", "A")
-print(marks.count("A"))  # 3
-
-# ------------------------------------------------------------
-# index() method
-# ------------------------------------------------------------
-# index() searches for a value and returns its position.
-# index() has an optional start parameter to specify where to begin the search.
-
-print(marks.index("B"))  # 1
-print(marks.index("A", 1))  # 2 - starts searching for "A" from index 1, so it finds the second "A" at index 2.
-
-#
-# If the value is not found, it raises a ValueError.
-# why not use 'in' to check existence first?
-# It's more efficient to use index() directly if you know the value exists.
-# Using 'in' would require two passes: one to check existence and another to find the index.
-# Using index() directly performs a single pass.
-#
-# index() only returns the first occurrence, so if you need all positions, you'd have to loop through the tuple.
-animals = ("cat", "dog", "cat")
-print(animals.index("cat"))  # 0
-
-# ------------------------------------------------------------
-# sorted()
-# ------------------------------------------------------------
-# sorted() returns a new list of sorted elements from the tuple.
-# sorted() has optional parameters like reverse=True for descending order and key for custom sorting.
-
-# why use sorted() instead of sort()?
-# sorted() works on any iterable and returns a new sorted list, while sort() is a
-# method that modifies a list in place and can only be used on lists.
-numbers = (3, 1, 2)
-sorted_numbers = sorted(numbers) 
-print("sorted() returns a list ", sorted_numbers, type(sorted_numbers))  # [1, 2, 3] - sorted() returns a new list, not a tuple. If you want a sorted tuple, you can convert it back
-sorted_tuple = tuple(sorted_numbers)
-print(sorted_tuple), type(sorted_numbers) # (1, 2, 3) - now we have a sorted tuple.
 
 # ------------------------------------------------------------
 # Tuples slicing

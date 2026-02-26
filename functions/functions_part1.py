@@ -84,7 +84,7 @@ print("Outside function:", numbers) # the original list remains unchanged
 def calc(a, b):
     return a + b
 
-print(calc(1))  # TypeError: calc() missing 1 required positional argument: 'b'
+# print(calc(1))  # TypeError: calc() missing 1 required positional argument: 'b'
 
 print("\n# -----------------------------")
 print("# 3. Return values")
@@ -296,3 +296,28 @@ def multiply(a: int, b: int) -> int:
     return a * b
 
 print(multiply(3, 4))
+
+
+system_threshold_limit = 100
+
+def modify_threshold_limit(system_threshold_limit):
+    system_threshold_limit += 50
+    return system_threshold_limit
+
+modify_threshold_limit(system_threshold_limit) # This does not change the global variable because integers are immutable and the parameter is a local variable that gets a copy of the value. The function returns the modified value, but we are not capturing it here.
+print(system_threshold_limit) # Output: 100 - the global variable remains unchanged because the function does not modify it in place, and we did not assign the returned value back to the global variable.
+
+
+
+active_sensor_data = [10, 20]
+
+def process_sensor_readings(readings_list):
+    # This modifies the original list because lists are mutable and the parameter 
+    # is a reference to the same list object. The change is visible outside the function.
+    readings_list.append(30) 
+    # This reassigns the local variable readings_list to a new list, 
+    # but does not affect the original list outside the function.
+    readings_list = [0, 0] 
+
+process_sensor_readings(active_sensor_data)
+print(active_sensor_data)

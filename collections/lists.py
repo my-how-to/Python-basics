@@ -19,12 +19,10 @@
 #     - remove()
 #     - pop()
 #   2. Useful List Functions
-#     - index()
-#     - sort()
-#     - reverse()
-#     - copy()
+#     - min()
+#     - max()
+#     - sum()
 #   3. Nested Lists (Lists Inside Lists)
-#   4. extend()
 #   5. list()
 #
 print("\n# -----------------------------")
@@ -49,9 +47,10 @@ print(fruits[-1]) # cherry (last item). See more in negative_indices.py
 # ------------------------------------------------------------
 # Slicing returns a portion of the list.
 
-# list[start : stop]
+# list[start : stop : step]
 # start → index where the slice begins (inclusive)
 # stop → index where the slice ends (exclusive)
+# step → how many items to skip (optional). Step can be negative to reverse the slice. Step cannot be zero.
 
 print(fruits[0:2])   # ['apple', 'banana'] this makes slicing predictable -> 2 items
 print(fruits[:2])    # ['apple', 'banana'] So the second number (2) is NOT included in the result.
@@ -60,10 +59,24 @@ print(fruits[::-1])  # ['cherry', 'banana', 'apple'] (reverses the list)
 # slicing with negative step skips every other from the end
 print(list(range(5))[::-2])  # [4, 2, 0]
 
+# Empty string, because the slice with a negative step is looking for items in reverse order, 
+# but the start index (1) is less than the stop index (5), so it does not find any items to include in the result.
+s = "Python"
+print("start > end in negative step", s[1:5:-1]) 
+# correct
+s = "Python"
+print(s[5:1:-1]) # 'nohty' because the slice with a negative step is looking for items in reverse order, starting from index 5 (the last character 'n') and moving backwards to index 1 (the character 'y'), including all characters in between. The stop index (1) is exclusive, so it does not include the character at index 1 in the result.
+
+
 # Slice assignment replaces the selected range, not just a single item.
 lst = [1, 2, 3, 4, 5]
 lst[1:3] = [9, 8]
 print(lst)  # [1, 9, 8, 4, 5]
+
+try:
+    print(lst[1:3:0])
+except Exception as e:
+    print(f"Error, slice step cannot be zero: {type(e).__name__}") # Error: ValueError
 
 # Slicing with a single index returns an item, while slicing with a range returns a list.
 lst = [1, 2, 3, 4]
@@ -89,43 +102,30 @@ print(fruits)  # ['apple', 'orange', 'cherry']
 # ------------------------------------------------------------
 # Adding Items
 # ------------------------------------------------------------
-fruits.append("mango")     # adds to the end
-fruits.insert(1, "pear")   # adds at position 1
+fruits.append("mango")     # adds to the end as a single item
+fruits.insert(1, "pear")   # adds at position 1 as a single item even if the item is a list
 print(fruits)  # ['apple', 'pear', 'orange', 'cherry', 'mango']
-
-# Note: append() adds its argument as a single item, even if it's a list.
-lst = [1, 2, 3]
-lst.append([4, 5])
-print(len(lst)) # 4, because the last item is a single list object, not two separate items
-print(lst)     # [1, 2, 3, [4, 5]]
-users = ["Alice", "Bob"]
-users.insert(0, "Charlie")
-print(users) # ['Charlie', 'Alice', 'Bob']
-print(users.insert(0, "Charlie")) # None, because insert() modifies the list in place and returns None.
 
 # ------------------------------------------------------------
 # Removing Items
 # ------------------------------------------------------------
 # why use remove vs pop vs del?
 # because they have different use cases
-# Remove by value:
+# 
+# # Remove by value:
 fruits.remove("cherry")
-print(fruits)
 
 # Or remove by index:
 fruits.pop(0)  # removes first item
-print(fruits)
 
 # Remove last item:
 fruits.pop()
-print(fruits)
 
 # Or delete by index with del:
 del fruits[0]
 # del fruits  # removes the entire list
-print(fruits)
-# why not use del to remove items? because it removes references, not items specifically
 
+# why not use del to remove items? because it removes references, not items specifically
 
 # Delete a slice (remove multiple items at once):
 fruits = ["apple", "banana", "cherry", "date", "elderberry"]
@@ -196,16 +196,6 @@ print("x references the same list object as y:", x is y)                # True
 # With lists, x += [value] performs in-place modification (like list.extend),
 # and x = x + [value] builds a brand-new list, which is why aliases behave differently.
 
-# trap: using append() in an assignment causes confusion because append() returns None, not the modified list.
-res = [1, 2, 3]
-res = res.append(4) # this does not modify res in place, but instead assigns None to res
-#res.append(5) # this modidifies the list that res used to reference, but now res is None, so this will raise an error
-try:
-    print(len(res))
-except Exception as e:
-    print(f"Error: {type(e).__name__}")  # Error: TypeError because res is now None, not a list
-
-
 
 print("\n# -----------------------------")
 print("# 2. Useful List Functions")
@@ -216,21 +206,6 @@ print(max(numbers))  # 9
 print(min(numbers))  # 1
 print(sum(numbers))  # 24
 
-# index() searches for a value and returns its position.
-names = ["Ana", "Sam", "Liu"]
-print(names.index("Sam"))  # 1
-
-numbers.sort()
-print("Sorted ascending:", numbers)      # [1, 2, 4, 8, 9]
-
-# Sort in reverse order
-numbers.sort(reverse=True)
-print("Sorted descending:", numbers)      # [9, 8, 4, 2, 1]
-
-# Reverse the list order without sorting (same goal as slicing with step -1).
-numbers.reverse()   # [1, 2, 4, 8, 9]
-print("Reversed:", numbers)
-
 # ------------------------------------------------------------
 # Copying Lists (same goal as slicing a[:])
 # ------------------------------------------------------------
@@ -238,7 +213,9 @@ print("Reversed:", numbers)
 a = [1, 2, 3]
 b = a[:]  # slicing
 b.append(4)
-print("a stays the same, b gets the new item:", a, b)   # a: [1, 2, 3], b: [1, 2, 3, 4]
+print("a stays the same, b gets the new item:", a, b)   
+# a: [1, 2, 3], 
+# b: [1, 2, 3, 4]
 
 nums_copy = numbers.copy()
 print(nums_copy)    # [9, 8, 4, 2, 1]
@@ -302,20 +279,6 @@ for row in matrix:
         print(value, end=" ")
     print()
 
-print("\n# -----------------------------")
-print("# 4. extend()")
-print("# -----------------------------\n")
-
-# extend() adds all items from another iterable to the list.
-# It differs from append() which adds its argument as a single item.
-nums = [1, 2, 3]
-nums.extend([4, 5])
-print(nums)  # [1, 2, 3, 4, 5]
-
-nums.extend("67")  # strings are iterables too
-# notice how each character is added separately
-# also they are added as strings, not numbers, this is different from int lists
-print(nums)  # [1, 2, 3, 4, 5, '6', '7']
 
 print("\n# -----------------------------")
 print("# 5. list()")
@@ -348,7 +311,11 @@ shallow_copy[0] = 0 # this modifies the shallow copy, but does not affect the or
 print("original after modifying shallow_copy:", original)        # [1, 2, 3]
 print("shallow_copy after modification:", shallow_copy)          # [0, 2, 3, 4]
 
-original.append([5, 6]) # this modifies the original list by adding a new inner list, but does not affect the shallow copy because it only contains references to the original items, not the original list itself
+# this modifies the original list by adding a new inner list, 
+# but does not affect the shallow copy because it only contains references to the original items, 
+# not the original list itself
+original.append([5, 6]) 
+
 print("original after appending a new inner list:", original)        # [1, 2, 3, [5, 6]]
 print("shallow_copy after original modification:", shallow_copy)          # [0, 2, 3, 4]
 
@@ -363,11 +330,3 @@ print("shallow copy with mutable after modification:", shallow_copy_with_mutable
 # than calling list() because the literal [] is a single bytecode instruction, while list()
 # requires a function call and name lookup. 
 # Use list() specifically for conversion or when you need a factory function.
-
-# empty string, because the slice with a negative step is looking for items in reverse order, 
-# but the start index (1) is less than the stop index (5), so it does not find any items to include in the result.
-s = "Python"
-print("start > end in negative step", s[1:5:-1]) 
-
-s = "Python"
-print(s[5:1:-1]) # 'nohty' because the slice with a negative step is looking for items in reverse order, starting from index 5 (the last character 'n') and moving backwards to index 1 (the character 'y'), including all characters in between. The stop index (1) is exclusive, so it does not include the character at index 1 in the result.

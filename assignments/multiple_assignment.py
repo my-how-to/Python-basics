@@ -90,7 +90,7 @@ print("After swap:", a, b) # Output: After swap: 3 2
 print("\n--- SECTION 5: Unpacking return values ---")
 
 def min_and_max(values):
-    return min(values), max(values)  # returns a tuple
+    return min(values), max(values)  # returns a tuple (min, max)
 
 mn, mx = min_and_max([3, 7, 1, 9])
 print("min:", mn, "max:", mx) # Output: min: 1 max: 9

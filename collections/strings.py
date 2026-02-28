@@ -67,6 +67,10 @@ print("# -----------------------------\n")
 
 name = "Alex QA"
 
+# String methods return new strings; they do not modify the original string.
+# to avoid confusion, we print the result of the method calls directly, without reassigning to 'name'.
+# to modify the original string, you would need to reassign it, like: name = name.upper() or name = name.replace(" ", "_")
+
 print("Upper:", name.upper())               # Upper: ALEX QA
 print("Lower:", name.lower())               # Lower: alex qa
 print("Title:", name.title())               # Title: Alex Qa

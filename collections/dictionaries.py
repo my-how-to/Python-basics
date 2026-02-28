@@ -82,9 +82,10 @@ person["age"] = 33
 # update() merges in new pairs or overwrites existing keys.
 person.update({"city": "Chisinau", "age": 34})
 
-# pop() returns and removes a key, while del just deletes it.
+# pop() returns value and removes a key, while del just deletes it.
 print(person.pop("city")) # removes "city" and returns its value: "Chisinau"
 print(person) # {'name': 'Alex', 'age': 34, 'job': 'QA Engineer'}
+
 del person["age"] # removes the "age" key without returning its value
 print(person) # {'name': 'Alex', 'job': 'QA Engineer'}
 
@@ -108,21 +109,24 @@ snapshot = person.copy()
 # This is useful when you want to reuse the same dictionary variable without retaining
 # any of its previous data.
 person.clear()
-print("snapshot:", snapshot)
-print("cleared:", person)
+print("snapshot:", snapshot) # snapshot retains the original data: {'name': 'Alex'}
+print("cleared:", person) # person is now empty: {}
 
 print("\n# -----------------------------")
 print("# 3. Looping Through a Dictionary")
 print("# -----------------------------\n")
 
+person.update({"city": "Berlin", "age": 44})
+
 # Iterating over the dictionary gives keys; 
 for key in person:
-    print(key)  # keys only
+    print("Only key in a new person data: ", key)  # keys only
 
-# .values() and .items() expose more detail.
+# .values() expose more detail.
 for value in person.values():
     print(value)  # values only
 
+# .items() expose more detail.
 for key, value in person.items():
     print(key, "→", value)  # key/value pairs
 
@@ -138,7 +142,7 @@ for key, value in person.items():
 # using keys, enabling dynamic navigation through the data structure.
 # Example:
 next_city = {"Paris": "Rome", "Rome": "Berlin", "Berlin": "Paris"}
-current = next_city["Rome"]
+current = next_city["Rome"] # start at key "Rome"
 
 # This loop runs a fixed number of steps, and each step looks up by key name.
 for _ in range(len(next_city)):
@@ -160,6 +164,10 @@ grades = {"Biology": 88, "Math": 95, "Art": 76}
 # It provides a way to iterate over dictionary keys or items in a predictable, sorted order,
 # which is useful for displaying data in a user-friendly way or when order matters for processing.  
 print("\n# Sorted keys")
+# sorted() returns a new list of sorted keys, so it doesn't modify the original dictionary.
+# subjects are sorted alphabetically, and we access their values in that order.
+# subjects are keys.
+# grades[subject] is the value for each key.
 for subject in sorted(grades):
     print(subject, grades[subject]) # sorted keys 
 
@@ -198,6 +206,7 @@ if "name" in person:
 print(len(person))
 
 # Merging dictionaries with update() is a common way to combine data from multiple sources.
+# duplicate keys are overwritten by the last one.
 d1 = {'Adam Smith': 'A', 'Judy Paxton': 'B+'}
 d2 = {'Mary Louis': 'A', 'Patrick White': 'C'}
 d3 = {}

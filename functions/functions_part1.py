@@ -78,13 +78,18 @@ print("Outside function:", numbers) # the original list remains unchanged
 
 
 # missing parameter causes an error
-# greet_person()  # TypeError: missing 1 required positional argument: 'name'
+try:
+    greet_person()  # TypeError: missing 1 required positional argument: 'name'
+except TypeError as e:
+    print(f"Error: {e}")
 
 # Too many arguments also causes an error.
-def calc(a, b):
+def calc(a, b, c):
     return a + b
-
-# print(calc(1))  # TypeError: calc() missing 1 required positional argument: 'b'
+try:
+    print(calc(1))  # TypeError: calc() missing 1 required positional argument: 'b'
+except Exception as e:
+    print(f"Error: {e}")
 
 print("\n# -----------------------------")
 print("# 3. Return values")
@@ -93,19 +98,19 @@ print("# -----------------------------\n")
 def add(a, b):
     return a + b
 
-print(add(3, 5))
+print("Returns: ", add(3, 5))
 
 # A bare return (or no return at all) means the function returns None.
 def log_message(msg):
-    print("LOG:", msg)
+    print("Inside function: ", msg)
     return
 
 def do_nothing():
     pass
 
-print(log_message("Saved"))     # prints message, then prints None
+print("Print calling function: ", log_message("Saved"))     # prints message, then prints None
 log_message("Error occurred")   # prints message, return value ignored
-print(do_nothing())             # prints None
+print("Do nothing: ",do_nothing())             # prints None
 
 # You can ignore a return value if you only need the side effect.
 def notify(user):
@@ -243,6 +248,7 @@ def announce(event, place, time):
 
 announce("Meetup", place="Community Hall", time="19:00")
 announce("Workshop", time="18:30", place="Studio B")
+# announce(time="18:30", "Workshop", place="Studio B") # SyntaxError: positional argument follows keyword argument
 
 
 print("\n# -----------------------------")
@@ -297,27 +303,3 @@ def multiply(a: int, b: int) -> int:
 
 print(multiply(3, 4))
 
-
-system_threshold_limit = 100
-
-def modify_threshold_limit(system_threshold_limit):
-    system_threshold_limit += 50
-    return system_threshold_limit
-
-modify_threshold_limit(system_threshold_limit) # This does not change the global variable because integers are immutable and the parameter is a local variable that gets a copy of the value. The function returns the modified value, but we are not capturing it here.
-print(system_threshold_limit) # Output: 100 - the global variable remains unchanged because the function does not modify it in place, and we did not assign the returned value back to the global variable.
-
-
-
-active_sensor_data = [10, 20]
-
-def process_sensor_readings(readings_list):
-    # This modifies the original list because lists are mutable and the parameter 
-    # is a reference to the same list object. The change is visible outside the function.
-    readings_list.append(30) 
-    # This reassigns the local variable readings_list to a new list, 
-    # but does not affect the original list outside the function.
-    readings_list = [0, 0] 
-
-process_sensor_readings(active_sensor_data)
-print(active_sensor_data)

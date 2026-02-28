@@ -50,8 +50,8 @@ print("# -----------------------------\n")
 #   - decorators
 #   - strategy pattern
 
-def apply(func, value):
-    return func(value)
+def apply(func, value): # func is a parameter that expects a function as an argument
+    return func(value)  # calls the passed-in function with the given value
 
 def square(x):
     return x * x
@@ -141,7 +141,7 @@ print(factorial(6)) # 720
 # Recursive sum (keep the same logic as the simple example)
 # ------------------------------------------------------------
 def sum_up(x):
-    # Base case: stop when x reaches 3.
+    # Base case: if x is 10 or more, return x.
     if x >= 10:
         return x
     # Recursive case: add x and continue with x + 1.

@@ -252,3 +252,13 @@ except LookupError:
     print("L")
 except IndexError:
     print("I")
+
+
+try:
+    network_nodes_list = ["srv1", "srv2"]
+    current_node = network_nodes_list
+except LookupError:
+    current_node = "Not Found"
+except IndexError:
+    current_node = "Out of Range"
+print(current_node) #

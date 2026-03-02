@@ -66,3 +66,9 @@ print("\n# -----------------------------")
 print("# 5. with other operators")
 print("# -----------------------------\n")
 
+# Left shift can be combined with other operators, like addition or bitwise OR.
+value = 3
+result = (value << 2) + 1 # Shift left by 2 (multiply by 4) and add 1
+print("Result of (value << 2) + 1:", result) # Output: 13 (3 * 4 + 1)
+
+print(3 << 1 + 1) # Output: 12, because it's evaluated as 3 << (1 + 1) = 3 << 2 = 12

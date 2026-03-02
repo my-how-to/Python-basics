@@ -63,8 +63,16 @@ print(len(bytearray([1, 2, 3])))   # bytearray
 
 print("\n--- SECTION 4: Unsupported Objects ---")
 
+# len() does NOT work with:
+# - int
+# - float
+# - bool
+# - NoneType
+# - generator
+
 items = [42, 3.14, None, (x for x in range(5))]
 
+# Each of these will raise a TypeError because they do not implement __len__.
 for obj in items:
     try:
         print(len(obj))

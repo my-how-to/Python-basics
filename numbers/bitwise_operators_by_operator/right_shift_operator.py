@@ -61,3 +61,6 @@ high = packed >> 4
 low = packed & 0b1111
 print("high:", format(high, "04b"), "->", high)
 print("low: ", format(low, "04b"), "->", low)
+
+# operator precedence example:
+print(8 >> 1 * 2) # Output: 2, because it's evaluated as 8 >> (1 * 2) = 8 >> 2 = 2

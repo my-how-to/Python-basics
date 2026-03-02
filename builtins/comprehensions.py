@@ -40,6 +40,17 @@ print(even_squares)  # [4, 16]
 #This list returns all numbers from 0 to 5 that are NOT divisible by 3.
 print([i for i in range(6) if i % 3])  # [1, 2, 4, 5]
 
+# RULE: If you use 'if' as a filter, it goes AFTER 'for'.
+# RULE: If you use 'if-else' (ternary), it goes BEFORE 'for'.
+
+# A) Filtering (No 'else' allowed here!)
+data_sample = [1, 2, 3, 4, 5]
+filtered_list = [x for x in data_sample if x > 2] # Result: [3, 4, 5]
+
+# B) Transformation (Ternary Operator)
+transformed_list = [x if x % 2 != 0 else 0 for x in data_sample] # Result: [1, 0, 3, 0, 5]
+
+
 # ============================================================
 # 2) Dictionary Comprehensions
 # ============================================================
@@ -60,7 +71,10 @@ print(unique_lengths)  # {4, 5, 6}
 # ============================================================
 
 pairs = [(x, y) for x in [1, 2] for y in [3, 4]]
-print(pairs)  # [(1, 3), (1, 4), (2, 3), (2, 4)]
+print(pairs)  
+# [
+# (1, 3), (1, 4), 
+# (2, 3), (2, 4)]
 
 # Equivalent regular loop
 pairs_loop = []
@@ -69,8 +83,19 @@ for x in [1, 2]:
         pairs_loop.append((x, y))
 print(pairs_loop)
 
-# ============================================================
-# 5) Extra Notes
+data_matrix_flow = [[x for x in range(3)] for y in range(2)]
+print(data_matrix_flow)  # [[0, 1, 2], [0, 1, 2]]
+
+# without comprehension, this would be:
+data_matrix_flow = []
+for y in range(2):
+    sub_list = []
+    for x in range(3):
+        sub_list.append(x)
+    data_matrix_flow.append(sub_list)
+print(data_matrix_flow) # Output: [[0, 1, 2], [0, 1, 2]]
+
+
 # ============================================================
 
 # Generator expressions look like list comprehensions, but use parentheses:

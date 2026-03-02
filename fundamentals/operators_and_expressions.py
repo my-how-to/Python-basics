@@ -106,6 +106,25 @@ print(5 and 0)      # 0, because 0 is falsy
 print(0 or 7)       # 7
 print("" and "Hi")  # ""
 print("Hello" or "")# "Hello"
+print(4 or 2 and 0) # 4, because 'or' returns the first truthy value, and 'and' returns the last value if all are truthy.
+
+# --- LOGICAL OPERATOR PRIORITY ---
+
+# ORDER: 
+# 1st: NOT, 
+# 2nd: AND, 
+# 3rd: OR
+
+# Example 1: 'and' is evaluated before 'or'
+# 0 or 5 and 10  =>  0 or (5 and 10)  =>  0 or 10  => 10
+priority_check = 0 or 5 and 10
+
+# Example 2: Short-circuiting
+# 'or' returns the first Truthy value. 
+# 'and' returns the first Falsy value (or the last if all are Truthy).
+logic_flow = "Python" or "Java" # Result: "Python" (First Truthy)
+logic_flow_2 = "" and "C++"      # Result: "" (First Falsy)
+
 
 is_admin = True
 is_active = False
@@ -184,6 +203,8 @@ print(10 % 3 * 2) # Output: 2, because it's evaluated as (10 % 3) * 2 = 1 * 2 = 
 result = 1 << 2 + 1
 print("1 << 2 + 1 =", result) # Output: 8, because it's evaluated as 1 << (2 + 1) = 1 << 3 = 8
 
+# bitwise operators order of precedence:
+# & (bitwise AND) has higher precedence than ^ (bitwise XOR), which has higher precedence than | (bitwise OR).
 
 print("\n# -----------------------------")
 print("# 8. PRACTICAL MINI-EXAMPLES")

@@ -44,6 +44,10 @@ print(s2)
 # Python
 # Jython
 
+user_name_string = "Certification"
+# Срез с отрицательным шагом
+print(user_name_string[5:1:-2]) # Output: "ft" 
+
 
 print("\n# -----------------------------")
 print("# 2. INDEXING AND SLICING")

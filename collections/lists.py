@@ -317,6 +317,16 @@ print("Appending via one reference touches all:", triplicated)
 # why append does not replace 'wow' with 'now'? because append adds to the existing list
 # to replace, you would do triplicated[0] = ['now']
 
+# RULE: If you use 'if' as a filter, it goes AFTER 'for'.
+# RULE: If you use 'if-else' (ternary), it goes BEFORE 'for'.
+
+# A) Filtering (No 'else' allowed here!)
+data_sample = [1, 2, 3, 4, 5]
+filtered_list = [x for x in data_sample if x > 2] # Result: [3, 4, 5]
+
+# B) Transformation (Ternary Operator)
+transformed_list = [x if x % 2 != 0 else 0 for x in data_sample] # Result:
+
 
 print("\n# -----------------------------")
 print("# 10. nested lists (lists inside lists)")

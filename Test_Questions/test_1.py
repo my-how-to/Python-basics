@@ -21,10 +21,9 @@ print(count_val)
 try:
     val_num = int("10.5") # This will raise a ValueError because "10.5" is not a valid integer string.
 except ValueError:
-    print("value")
+    print("Wrong value for int()")
 except:
     print("other")
-
 
 def test_val():
     try:
@@ -32,7 +31,7 @@ def test_val():
     finally:
         return 2 # This will override the previous return statement, so the function will always return 2.
 
-print(test_val()) # Output: 2, because the finally block's return statement overrides the try block's return statement.
+print("Return override: ", test_val()) # Output: 2, because the finally block's return statement overrides the try block's return statement.
 # it ovverrides because the finally block is guaranteed to execute, and its return value takes precedence over any previous return statements in the try block.
 
 
@@ -42,7 +41,7 @@ def outer_func_call(x_val):
     return inner_func_call
 
 closure_instance = outer_func_call(10)
-print(closure_instance(5)) 
+print("closure_instance: ", closure_instance(5)) # 15 
 
 
 counter_step_limit = 10

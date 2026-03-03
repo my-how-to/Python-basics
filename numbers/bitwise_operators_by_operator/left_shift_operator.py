@@ -7,6 +7,8 @@
 #   Focused introduction to left shift:
 #   moving bits left and multiplying by powers of two.
 #
+#   x << n:   x * 2**n
+#
 # Contents:
 #   1. Quick intuition
 #   2. Left shift basics

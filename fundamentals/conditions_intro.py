@@ -86,6 +86,11 @@ print("(a or b) and c ->", (a or b) and c)  # parentheses change grouping
 print("not a and b ->", not a and b)       # not runs before and
 print("not (a and b) ->", not (a and b))   # parentheses change grouping
 
+# Short-circuiting
+# 'or' returns the first Truthy value. 
+# 'and' returns the first Falsy value (or the last if all are Truthy).
+logic_flow = "Python" or "Java" # Result: "Python" (First Truthy)
+logic_flow_2 = "" and "C++"      # Result: "" (First Falsy)
 
 print("\n# -----------------------------")
 print("# 3. BOOLEAN EXPRESSIONS IN CONDITIONS")

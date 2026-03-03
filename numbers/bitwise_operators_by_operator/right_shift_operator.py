@@ -7,6 +7,8 @@
 #   Focused introduction to right shift:
 #   moving bits right and dividing by powers of two.
 #
+#  x >> n:   x // ( 2 ** n )
+#
 # Contents:
 #   1. Quick intuition
 #   2. Right shift basics

@@ -14,17 +14,23 @@
 # 
 # Contents:
 #   1. Lists — the Most Common Collection
-#     - append()
-#     - insert()
-#     - remove()
-#     - pop()
-#   2. Useful List Functions
+#   2. Slicing Lists
+#   3. Changing Items
+#   4. Adding Items
+#   5. Removing Items
+#   6. Looping Through a List
+#   7. Aliasing vs independent lists 
+#   8. Useful List Functions
 #     - min()
 #     - max()
 #     - sum()
-#   3. Nested Lists (Lists Inside Lists)
-#   5. list()
-#
+#     - copy()
+#   9. List Comprehensions
+#   10. Nested Lists (Lists Inside Lists)
+#   11. list() — the List Constructor
+
+
+
 print("\n# -----------------------------")
 print("# 1. Lists — the Most Common Collection")
 print("# -----------------------------\n")
@@ -42,15 +48,26 @@ print(fruits[0])  # apple
 print(fruits[1])  # banana
 print(fruits[-1]) # cherry (last item). See more in negative_indices.py
 
-# ------------------------------------------------------------
-# Slicing Lists 
-# ------------------------------------------------------------
-# Slicing returns a portion of the list.
+# Trying to access a single index that is out of range raise an IndexError:
+s = "abc"
+try:
+    print(s[10])
+except Exception as e:
+    print(f"Error, out of range: {type(e).__name__}")
+
+print("\n# -----------------------------")
+print("# 2. Slicing Lists")
+print("# -----------------------------\n")
+
+# Slicing returns a portion of the list. 
 
 # list[start : stop : step]
-# start → index where the slice begins (inclusive)
-# stop → index where the slice ends (exclusive)
-# step → how many items to skip (optional). Step can be negative to reverse the slice. Step cannot be zero.
+
+# start →   index where the slice begins (inclusive)
+# stop →    index where the slice ends (exclusive)
+# step →    how many items to skip (optional). 
+#           Step can be negative to reverse the slice. 
+#           Step cannot be zero. Raising ValueError if you try.
 
 print(fruits[0:2])   # ['apple', 'banana'] this makes slicing predictable -> 2 items
 print(fruits[:2])    # ['apple', 'banana'] So the second number (2) is NOT included in the result.
@@ -59,98 +76,99 @@ print(fruits[::-1])  # ['cherry', 'banana', 'apple'] (reverses the list)
 # slicing with negative step skips every other from the end
 print(list(range(5))[::-2])  # [4, 2, 0]
 
-# Empty string, because the slice with a negative step is looking for items in reverse order, 
-# but the start index (1) is less than the stop index (5), so it does not find any items to include in the result.
+# Slicing with a negative step can be tricky. 
+# The start index should be greater than the stop index for it to work.
 s = "Python"
-print("start > end in negative step", s[1:5:-1]) 
+print("start > end in negative step: ", s[1:5:-1]) # empty string, because start index (1) is not greater than stop index (5) when stepping backwards.
+
 # correct
 s = "Python"
-print(s[5:1:-1]) # 'nohty' because the slice with a negative step is looking for items in reverse order, starting from index 5 (the last character 'n') and moving backwards to index 1 (the character 'y'), including all characters in between. The stop index (1) is exclusive, so it does not include the character at index 1 in the result.
+print("start < end in negative step: ", s[5:1:-1]) # 'nohty' 
 
-
-# Slice assignment replaces the selected range, not just a single item.
+# Slicing with a step of zero is not allowed and raises a ValueError.
 lst = [1, 2, 3, 4, 5]
-lst[1:3] = [9, 8]
-print(lst)  # [1, 9, 8, 4, 5]
-
-lst[1:3] = [11]  # this replaces the slice with a single item, so it removes the second item and replaces the third item with 11
-print(lst)  # [1, 11, 4, 5]
-
 try:
     print(lst[1:3:0])
 except Exception as e:
     print(f"Error, slice step cannot be zero: {type(e).__name__}") # Error: ValueError
 
-# Slicing with a single index returns an item, while slicing with a range returns a list.
+# ------------------------------------------------------------
+# Sliceing with a single index vs a range
+# ------------------------------------------------------------
+
+# Slicing with a range (like lst[0:1]) returns a list containing that item.
 lst = [1, 2, 3, 4]
-lst = lst[1:-1] # this keeps only the middle items, removing the first and last
-lst = lst[-1]   # this keeps only the last item of the sliced list, which is 3
-# lst is now an integer, not a list, because we sliced with a single index instead of a range
+lst = lst[1:-1] 
+print("Slicing with a range (1:-1) keeps the middle items:", lst)  # [2, 3]
+
+# Slicing with a single index (like lst[0]) returns a single item 
+lst = lst[-1] 
+# lst is now an integer, not a list
 print("The last item of the sliced list is:", lst, type(lst))  # 3     
+
+# ------------------------------------------------------------
+# Out-of-range slicing
+# ------------------------------------------------------------
 
 # out of range slicing does not raise an error, it just returns an empty list
 s = "abc"
-print(s[10:])  # empty string, no error → slicing is forgiving with out-of-range indices
-# However, trying to access a single index that is out of range does raise an error:
-try:
-    print(s[10])    # error → single index out of range raises IndexError   
-except Exception as e:
-    print(f"Error: {type(e).__name__}")  # Error: IndexError
-# ------------------------------------------------------------
-# Changing Items
-# ------------------------------------------------------------
+print(s[10:])  # slicing is forgiving with out-of-range indices
+
+
+print("\n# -----------------------------")
+print("# 3. Changing Items")
+print("# -----------------------------\n")
+
 fruits[1] = "orange"
 print(fruits)  # ['apple', 'orange', 'cherry']
 
 # ------------------------------------------------------------
-# Adding Items
+# Slice assignment — changing multiple items at once
 # ------------------------------------------------------------
+
+# replaces the selected range, not just a single item.
+lst = [1, 2, 3, 4, 5]
+lst[1:3] = [9, 8]
+print("Changing multiple items at once - [9, 8] : ", lst)  # [1, 9, 8, 4, 5]
+
+lst[1:4] = [11]  # this replaces the slice with a single item, so it removes the 9, 8, and 4 and puts 11 in their place
+print("Changing multiple items at once - [11] : ",lst)  # [1, 11, 5]
+
+
+print("\n# -----------------------------")
+print("# 4. Adding Items")
+print("# -----------------------------\n")
+
 fruits.append("mango")     # adds to the end as a single item
 fruits.insert(1, "pear")   # adds at position 1 as a single item even if the item is a list
-print(fruits)  # ['apple', 'pear', 'orange', 'cherry', 'mango']
+fruits.extend(["kiwi", "grape"])  # adds each item from the iterable (like a list) to the end of the list
+print(fruits)  # ['apple', 'pear', 'orange', 'cherry', 'mango', 'kiwi', 'grape']
 
-# ------------------------------------------------------------
-# Removing Items
-# ------------------------------------------------------------
-# why use remove vs pop vs del?
-# because they have different use cases
-# 
+print("\n# -----------------------------")
+print("# 5. Removing Items")
+print("# -----------------------------\n")
+
 # # Remove by value:
 fruits.remove("cherry")
 
 # Or remove by index:
-fruits.pop(0)  # removes first item
-
-# Remove last item:
-fruits.pop()
+fruits.pop(0)   # removes first item
+fruits.pop()    # remove last item
 
 # Or delete by index with del:
 del fruits[0]
 # del fruits  # removes the entire list
-
-# why not use del to remove items? because it removes references, not items specifically
 
 # Delete a slice (remove multiple items at once):
 fruits = ["apple", "banana", "cherry", "date", "elderberry"]
 del fruits[1:3]
 print(fruits)  # ['apple', 'date', 'elderberry']
 
-# ------------------------------------------------------------
-# del removes a reference, not necessarily the list object
-# ------------------------------------------------------------
-original = ["alpha", "beta", "gamma"]
-alias = original  # both names point to the same list object
-del original      # only deletes the name, not the shared list
-print("alias still works after deleting original:", alias)
 
-# If no references remain, the list becomes unreachable and is cleaned up.
-temp = [1, 2, 3]
-del temp
-# temp is no longer defined here.
+print("\n# -----------------------------")
+print("# 6. Looping Through a List")
+print("# -----------------------------\n")
 
-# ------------------------------------------------------------
-# Looping Through a List
-# ------------------------------------------------------------
 for fruit in fruits:
     print(f"I like {fruit}")
 
@@ -171,9 +189,10 @@ print(len(fruits))  # number of elements
 print("apple" in fruits)     # True / False
 print("kiwi" not in fruits)  # True / False
 
-# ------------------------------------------------------------
-# Aliasing vs independent lists
-# ------------------------------------------------------------
+print("\n# -----------------------------")
+print("# 7. Aliasing vs independent lists")
+print("# -----------------------------\n")
+
 # Assigning one list variable to another does NOT copy; both names point to same object.
 x = [1, 2, 3]
 y = x
@@ -185,6 +204,8 @@ print("y after y.append:", y)  # [1, 2, 3, 4]
 x = [1, 2, 3]
 y = x
 x = x + [4]  # new list produced; x now points to a different object
+# it is equivalent to 
+x = [1, 2, 3] + [4] # which creates a new list [1, 2, 3, 4] and assigns it to x
 print("y stays referencing the original list:", y)  # [1, 2, 3]
 print("x now points to a new list:", x)             # [1, 2, 3, 4]
 
@@ -192,6 +213,8 @@ print("x now points to a new list:", x)             # [1, 2, 3, 4]
 x = [1, 2, 3]
 y = x
 x += [4]  # extends the original object instead of rebinding
+# it is equivalent to
+x.extend([4]) # which modifies the original list that both x and y reference
 print("y also sees the appended value due to shared reference:", y)     # [1, 2, 3, 4]
 print("x references the same list object as y:", x is y)                # True
 
@@ -201,7 +224,7 @@ print("x references the same list object as y:", x is y)                # True
 
 
 print("\n# -----------------------------")
-print("# 2. Useful List Functions")
+print("# 8. Useful List Functions")
 print("# -----------------------------\n")
 
 numbers = [4, 1, 8, 2, 9]
@@ -214,7 +237,7 @@ print(sum(numbers))  # 24
 # ------------------------------------------------------------
 # Two common shallow-copy options:
 a = [1, 2, 3]
-b = a[:]  # slicing
+b = a[:]  # slicing creates a new list object with the same items (shallow copy)
 b.append(4)
 print("a stays the same, b gets the new item:", a, b)   
 # a: [1, 2, 3], 
@@ -242,16 +265,21 @@ cloned_matrix[0][0] = 999
 print("Original matrix after modifying nested item:", original_matrix)  # [[999, 20], [30, 40]]
 print("Cloned matrix after modifying nested item:", cloned_matrix)      # [[999, 20], [30, 40], [50, 60]]
 
-
+# another example of the slice trap with a single nested list:
 list_a = [1, [2, 3]]
 list_b = list_a[:]
 
-list_b[0] = 99      # this changes only list_b, because it modifies the top-level item (the integer 1) which is a different object in list_b
+list_b.append(4)    # this changes only list_b, because it modifies the top-level list by adding a new item (4) which is a different object in list_b
+list_b[0] = 7       # this changes only list_b, because it modifies the top-level item (the integer 1) which is a different object in list_b
 list_b[1][0] = 77   # this changes both list_a and list_b, because it modifies the nested list [2, 3] which is the same object in both lists
+print("list_a after modifications to list_b:", list_a)  # [1, [77, 3]] → the first item (1) is unchanged because it is a different object in list_a, but the nested list is modified in both because it is shared
+print("list_b after modifications:", list_b)            # [7, [77, 3], 4] → the first item is changed to 99, the nested list is modified to [77, 3], and 4 is added at the end
 
-# ------------------------------------------------------------
-# List Comprehensions
-# ------------------------------------------------------------
+print("\n# -----------------------------")
+print("# 9. List Comprehensions")
+print("# -----------------------------\n")
+
+# List comprehensions provide a concise way to create lists.
 # Create a list of squares
 squares = [n * n for n in numbers]
 print(squares)      # [81, 64, 16, 4, 1]
@@ -291,7 +319,7 @@ print("Appending via one reference touches all:", triplicated)
 
 
 print("\n# -----------------------------")
-print("# 3. Nested Lists (Lists Inside Lists)")
+print("# 10. nested lists (lists inside lists)")
 print("# -----------------------------\n")
 
 matrix = [
@@ -306,11 +334,10 @@ print(matrix[1][2])  # 6
 for row in matrix:
     for value in row:
         print(value, end=" ")
-    print()
-
+    print()  # new line after each row
 
 print("\n# -----------------------------")
-print("# 5. list()")
+print("# 11. list()")
 print("# -----------------------------\n")
 
 # list() is a constructor used to create a new list object. 
@@ -340,45 +367,11 @@ shallow_copy[0] = 0 # this modifies the shallow copy, but does not affect the or
 print("original after modifying shallow_copy:", original)        # [1, 2, 3]
 print("shallow_copy after modification:", shallow_copy)          # [0, 2, 3, 4]
 
-# this modifies the original list by adding a new inner list, 
-# but does not affect the shallow copy because it only contains references to the original items, 
-# not the original list itself
-original.append([5, 6]) 
-
-print("original after appending a new inner list:", original)        # [1, 2, 3, [5, 6]]
-print("shallow_copy after original modification:", shallow_copy)          # [0, 2, 3, 4]
-
-origial_with_mutable = [[1, 2], [3, 4]]
-shallow_copy_with_mutable = list(origial_with_mutable)
-shallow_copy_with_mutable[0][0] = a # this modifies the inner list that both the original and the shallow copy reference, so it affects both lists
-print("original with mutable after modification:", origial_with_mutable)                # [[a, 2], [3, 4]]
-print("shallow copy with mutable after modification:", shallow_copy_with_mutable)       # [[a, 2], [3, 4]]
-
 # Performance Note
 # For creating an empty list, using square brackets [] is significantly faster (roughly 3x)
 # than calling list() because the literal [] is a single bytecode instruction, while list()
 # requires a function call and name lookup. 
 # Use list() specifically for conversion or when you need a factory function.
 
-original_config_list = [[1], [2], [3]]
-cloned_config_list = original_config_list[:]
-cloned_config_list[0].append(10)
-cloned_config_list[1] = [20]
 
-print(original_config_list)
 
-check_logic_status = 0 or 5 and 10 or 15
-
-#this can be rewritten as:
-check_logic_status = (0 or (5 and 10)) or 15
-
-# this can be rewritten as:
-check_logic_status = (0 or 10) or 15
-
-# this can be rewritten as:
-check_logic_status = 10 or 15
-
-# this can be rewritten as:
-check_logic_status = 10
-
-print(check_logic_status)

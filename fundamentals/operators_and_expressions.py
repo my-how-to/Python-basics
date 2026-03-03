@@ -125,6 +125,21 @@ priority_check = 0 or 5 and 10
 logic_flow = "Python" or "Java" # Result: "Python" (First Truthy)
 logic_flow_2 = "" and "C++"      # Result: "" (First Falsy)
 
+check_logic_status = 0 or 5 and 10 or 15
+
+#this can be rewritten as:
+check_logic_status = (0 or (5 and 10)) or 15
+
+# this can be rewritten as:
+check_logic_status = (0 or 10) or 15
+
+# this can be rewritten as:
+check_logic_status = 10 or 15
+
+# this can be rewritten as:
+check_logic_status = 10
+
+print(check_logic_status)
 
 is_admin = True
 is_active = False

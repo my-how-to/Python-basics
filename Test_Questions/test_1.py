@@ -35,6 +35,7 @@ print("Return override: ", test_val()) # Output: 2, because the finally block's 
 # it ovverrides because the finally block is guaranteed to execute, and its return value takes precedence over any previous return statements in the try block.
 
 
+# closure
 def outer_func_call(x_val):
     def inner_func_call(y_val):
         return x_val + y_val

@@ -151,6 +151,8 @@ def example_validation_loop():
 # 7. COMMON BUILT-IN EXCEPTIONS
 # ------------------------------------------------------------
 # Some exceptions you'll see often:
+
+#   BaseExceptions        top level, takes all Exceptions if positioned first.
 #
 #   ValueError            wrong type conversion
 #   ZeroDivisionError     dividing by zero

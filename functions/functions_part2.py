@@ -96,7 +96,9 @@ def multiplier(n):
     return inner
 
 double = multiplier(2)
+three_times = multiplier(3)
 print(double(10))
+print(three_times(10))
 
 
 print("\n# -----------------------------")
@@ -117,8 +119,8 @@ def counter_factory():
     return increment
 
 inc = counter_factory()
-print(inc())
-print(inc())
+print(inc()) 
+print(inc(), inc())
 
 
 print("\n# -----------------------------")
@@ -215,7 +217,7 @@ def todo():
 def future_feature():
     ...
 
-print("Stub functions executed (no output).")
+print("Stub functions executed (no output).", todo(), future_feature())
 
 
 print("\n# -----------------------------")

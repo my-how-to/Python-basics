@@ -224,7 +224,7 @@ print("Zero repeat:", "ha" * 0)       # Zero repeat:  (empty string)
 print("Negative repeat:", "ha" * -2)  # Negative repeat:  (empty string)
 
 # Drawing a simple rectangle using concatenation and repetition
-top_bottom = "+" + "-" * 10 + "+"
+top_bottom = "+" "=" + "-" * 10 + "+"
 side = "|" + " " * 10 + "|\n"
 
 print(top_bottom)

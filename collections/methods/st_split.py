@@ -61,6 +61,12 @@ text = "apple,banana,orange"
 print(text.split(","))
 # Output: ['apple', 'banana', 'orange']
 
+# Note: the last separator's output:
+text = "apple,banana,orange,"
+
+print(text.split(","))
+# Output: ['apple', 'banana', 'orange', '']
+
 
 # ==========================================================
 # 6) USING maxsplit
@@ -85,6 +91,14 @@ text = "hello"
 print(text.split(","))
 # Output: ['hello']
 
+print(text.split("e"))
+# Output: ['h', 'llo']
+
+print(text.split("l"))
+# Output: ['he', '', 'o'] empty string because between p and p there is no string.
+
+print("SOS splitted: ","SOS".split("S"))
+# Output: ['', 'O', ''] (empty strings at sides, because "S" stands first and last).
 
 # Splitting empty string
 

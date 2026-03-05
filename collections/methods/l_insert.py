@@ -54,9 +54,10 @@
 numbers = [1, 2, 4]
 
 numbers.insert(2, 3)
+numbers.insert(2, "abc")
 
 print(numbers)
-# Output: [1, 2, 3, 4]
+# Output: [1, 2, 'abc', 3, 4]
 
 
 # ==========================================================

@@ -93,13 +93,13 @@ def example_else_finally():
 # File not found.
 # This always runs — cleaning up.
 
-    print("\n# --- ELSE runs only if no exception ---")
-    try:
-        print(10 / 2) # OK
-    except ZeroDivisionError:
-        print("Division error") # not triggered
-    else:
-        print("OK — no exception occurred") # runs because no error
+print("\n# --- ELSE runs only if no exception ---")
+try:
+    print(10 / 2) # OK
+except ZeroDivisionError:
+    print("Division error") # not triggered
+else:
+    print("OK — no exception occurred") # runs because no error
 
 
 # ------------------------------------------------------------
@@ -151,25 +151,22 @@ def example_validation_loop():
 # 7. COMMON BUILT-IN EXCEPTIONS
 # ------------------------------------------------------------
 # Some exceptions you'll see often:
-
-#   BaseExceptions        top level, takes all Exceptions if positioned first.
 #
-#   ValueError            wrong type conversion
-#   ZeroDivisionError     dividing by zero
-#   TypeError             wrong data types for an operation
-#   FileNotFoundError     missing file
-
-#   LookupError           base class for KeyError and IndexError. Use LookupError to catch both.
-#   KeyError              missing dictionary key
-#   IndexError            list index out of range
-
-#   AttributeError        trying to use a missing attribute in a function or class
-#   NameError             using undefined variables
-#   PermissionError       cannot access a file
+# + BaseExceptions              base class for all Exceptions if positioned first.
+#  - Exeption
+#     - ValueError              wrong type conversion
+#     - TypeError               wrong data types for an operation
+#     - ArithmeticError
+#           ZeroDivisionError   dividing by zero
+#           OverflowError
+#     - LookupError             base class for KeyError and IndexError. Use LookupError to catch both.
+#           KeyError            missing dictionary key
+#           IndexError          list index out of range
+#     - FileNotFoundError       missing file
+#     - AttributeError          trying to use a missing attribute in a function or class
+#     - NameError               using undefined variables
+#     - PermissionError         cannot access a file
 #
-# You don’t need to memorize them all — they become familiar
-# as you code.
-
 # ------------------------------------------------------------
 # EXTRA: GETTING THE EXCEPTION NAME
 # ------------------------------------------------------------
@@ -243,24 +240,3 @@ def example_safe_conversion():
         except ValueError:
             print(f"Skipping invalid value: {val}")
 
-
-# Looking up multiple exception types in the wrong order can cause unexpected behavior.
-# IndexError is a subclass of LookupError, so if you catch LookupError first, 
-# it will also catch IndexError and the specific except block for IndexError will never run.
-try:
-    l = [1, 2]
-    print(l[2])
-except LookupError:
-    print("L")
-except IndexError:
-    print("I")
-
-
-try:
-    network_nodes_list = ["srv1", "srv2"]
-    current_node = network_nodes_list
-except LookupError:
-    current_node = "Not Found"
-except IndexError:
-    current_node = "Out of Range"
-print(current_node) #

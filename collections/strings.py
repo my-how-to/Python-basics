@@ -44,11 +44,6 @@ print(s2)
 # Python
 # Jython
 
-user_name_string = "Certification"
-# Срез с отрицательным шагом
-print(user_name_string[5:1:-2]) # Output: "ft" 
-
-
 print("\n# -----------------------------")
 print("# 2. INDEXING AND SLICING")
 print("# -----------------------------\n")
@@ -64,6 +59,8 @@ print("Slice (7:):", text[7:])      # Slice (7:): world!
 
 print("Every second char:", text[::2])  # Every second char: Hlo ol!
 
+user_name_string = "Certification"
+print(user_name_string[5:1:-2]) # Output: "ft" 
 
 print("\n# -----------------------------")
 print("# 3. USEFUL STRING METHODS")
@@ -96,9 +93,10 @@ print("Index of 'na' (index):", text.index("na"))  # searches for value
 
 # Output:
 # Index of 'a': 1
-# Last index of 'a': 13
+# Last index of 'a': 8
 # Count of 'a': 4
 # Contains 'yellow'? True
+# Index of 'na' (index): 2
 
 
 print("\n# -----------------------------")

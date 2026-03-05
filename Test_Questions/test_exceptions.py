@@ -22,6 +22,29 @@ print("Return override: ", test_val()) # Output: 2, because the finally block's 
 try:
     raise Exception("Critical")
 except BaseException:
-    print("A")
+    print("A") # this is printed
 except Exception:
     print("B")
+
+
+
+# Looking up multiple exception types in the wrong order can cause unexpected behavior.
+# IndexError is a subclass of LookupError, so if you catch LookupError first, 
+# it will also catch IndexError and the specific except block for IndexError will never run.
+try:
+    l = [1, 2]
+    print(l[2])
+except LookupError:
+    print("L")
+except IndexError:
+    print("I")
+
+
+try:
+    network_nodes_list = ["srv1", "srv2"]
+    current_node = network_nodes_list
+except LookupError:
+    current_node = "Not Found"
+except IndexError:
+    current_node = "Out of Range"
+print(current_node) #

@@ -80,12 +80,14 @@ print(t.index(6))
 
 text = "banana"
 
-print(text.index("a"))
+print("a: ",text.index("a"))
 # Output: 1
 
-print(text.index("a", 2))
+print("a, 2: ",text.index("a", 2))
 # Output: 3
 
+print("nan: ",text.index("nan"))
+# Output: 2
 
 # ==========================================================
 # 6) ERROR CASE

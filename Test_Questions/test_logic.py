@@ -20,4 +20,12 @@ for i in range(len(list_length_check)): # range(2), i.е. i = 0, then i = 1
 
 
 
+counter = 0
+for i in range(2):
+    for j in range(2):
+        if i == j:
+            counter +=1
 
+        break
+
+print(counter)

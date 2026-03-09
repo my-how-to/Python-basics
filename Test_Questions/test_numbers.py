@@ -23,3 +23,4 @@ count_val = 10
 count_val += flag_val # count_val += 1, because flag_val is True (which is 1), so count_val becomes 11.
 print(count_val)
 
+print("conversions: ",int("11", 2) + int("11", 8))

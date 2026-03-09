@@ -63,6 +63,9 @@
 
 # ---------- SIMPLE JOIN ----------
 
+print(".".join("ABC"))
+
+
 words = ["Python", "is", "powerful"]
 
 sentence = " ".join(words)

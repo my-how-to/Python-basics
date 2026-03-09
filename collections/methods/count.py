@@ -87,7 +87,7 @@ numbers = [1, 2, 3, 2, 2, 4]
 
 print(numbers.count(2))
 # Output: 3
-
+print("missing item: ", numbers.count(5))
 
 # ---------- TUPLE ----------
 

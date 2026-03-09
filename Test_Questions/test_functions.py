@@ -7,3 +7,6 @@ def outer_func_call(x_val):
 
 closure_instance = outer_func_call(10)
 print("closure_instance: ", closure_instance(5)) # 15 
+
+
+print(type(print))

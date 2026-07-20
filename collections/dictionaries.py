@@ -31,7 +31,7 @@
 #     - values()
 #     - items()
 #     - hopping through a dictionary by key name
-#     - sorted keys/items
+#     - sorted keys
 #   4. Checking Membership & Length
 #   5. keys()
 #   6. setdefault()
@@ -41,6 +41,7 @@ print("# 1. Dictionaries — Mapped Data")
 print("# -----------------------------\n")
 
 empty_dict = {}
+empty_sample = dict() # alternative way to create an empty dictionary
 print("empty dict literal:", empty_dict, type(empty_dict))
 
 # Hanging indent keeps multi-line dicts readable and aligned.
@@ -85,14 +86,18 @@ person.update({"city": "Chisinau", "age": 34})
 # pop() returns value and removes a key, while del just deletes it.
 print(person.pop("city")) # removes "city" and returns its value: "Chisinau"
 print(person) # {'name': 'Alex', 'age': 34, 'job': 'QA Engineer'}
+# if key is missing, pop() raises KeyError unless a default is provided.
+print(person.pop("country", "Not specified"))  # Not specified
 
 del person["age"] # removes the "age" key without returning its value
+# del does not return a value, so you cannot assign it to a variable.
 print(person) # {'name': 'Alex', 'job': 'QA Engineer'}
 
 # popitem() removes and returns the most recently inserted pair.
+# if the dictionary is empty, popitem() raises KeyError.
 last_item = person.popitem()
-print("popped:", last_item)
-print("after popitem:", person)
+print("popped:", last_item) # popped: ('job', 'QA Engineer')
+print("after popitem:", person) # # {'name': 'Alex'}
 
 # ------------------------------------------------------------
 # copy() and clear()
@@ -124,11 +129,11 @@ for key in person:
 
 # .values() expose more detail.
 for value in person.values():
-    print(value)  # values only
+    print("Only values in a new person data: ",value)  # values only
 
 # .items() expose more detail.
 for key, value in person.items():
-    print(key, "→", value)  # key/value pairs
+    print("Only key/value pairs in a new person data: ",key, "→", value)  # key/value pairs
 
 # values() and items() are dictionary-only; lists/tuples/sets don't have them.
 
@@ -167,6 +172,9 @@ print("\n# Sorted keys")
 # sorted() returns a new list of sorted keys, so it doesn't modify the original dictionary.
 # subjects are sorted alphabetically, and we access their values in that order.
 # subjects are keys.
+# sorted does not remove duplicates, but dictionaries inherently have unique keys, 
+# so this is not a concern here.
+
 # grades[subject] is the value for each key.
 for subject in sorted(grades):
     print(subject, grades[subject]) # sorted keys 
@@ -246,12 +254,3 @@ print(profile)  # {'name': 'Maria', 'city': 'Unknown'}
 # If the key exists, it returns the current value and does nothing.
 profile.setdefault("name", "Other")
 print(profile["name"])  # Maria
-
-
-staff = {"IT": 15, "HR": 5}
-total = 0
-
-for dept in staff:
-    total += staff[dept]
-
-print(total) # 20

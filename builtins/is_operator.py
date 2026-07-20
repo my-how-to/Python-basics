@@ -53,8 +53,8 @@ print("original:", original)
 print("shallow:", shallow)  # inner list shared with original
 print("deep:", deep)        # deep copy keeps its own structures
 
-print("original[0] is shallow[0]:", original[0] is shallow[0])
-print("original[0] is deep[0]:", original[0] is deep[0])
+print("original[0] is shallow[0]:", original[0] is shallow[0]) # True 
+print("original[0] is deep[0]:", original[0] is deep[0]) # False
 
 
 # ============================================================
